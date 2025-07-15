@@ -1,10 +1,3 @@
----
-- SEO Meta-Title: 用 Zeka Stack 打造可维护、高效开发的工程骨架
-- Meta Description: 深入剖析 Zeka Stack 的项目分层哲学，揭示如何通过结构化架构和自动化工具提升代码可维护性、团队协作效率与系统稳定性。
-- Slug: zeka-stack-clean-architecture-principle
-- Excerpt Introduction: 真正可维护的系统，从不是靠堆代码实现的。Zeka Stack 借助分层架构与统一工具链，以“结构清晰、职责分明、自动化高”的理念，为大型 Java 项目奠定坚实基础。本文将带你一探背后的架构哲学与实践方法。
----
-
 ## 🧑‍💻 简介
 
 在日常开发中，写业务不难，难的是「工程一上来就乱」、「依赖一多就扯皮」、「构建一复杂就抓狂」。**Zeka Stack** 希望通过系统化的工程体系来解决上述问题.
