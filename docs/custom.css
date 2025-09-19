@@ -1,0 +1,109 @@
+/* 自定义字体大小样式 */
+
+/* 调整整体字体大小 */
+.markdown-section {
+  font-size: 16px; /* 默认字体大小，可以调整 */
+  line-height: 1.6; /* 行高，提高可读性 */
+}
+
+/* 调整标题字体大小 */
+.markdown-section h1 {
+  font-size: 2.2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+.markdown-section h2 {
+  font-size: 1.8em;
+  margin-top: 0.8em;
+  margin-bottom: 0.3em;
+}
+
+.markdown-section h3 {
+  font-size: 1.5em;
+  margin-top: 0.8em;
+  margin-bottom: 0.3em;
+}
+
+.markdown-section h4 {
+  font-size: 1.3em;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+.markdown-section h5 {
+  font-size: 1.1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+.markdown-section h6 {
+  font-size: 1em;
+  margin-top: 0.4em;
+  margin-bottom: 0.2em;
+}
+
+/* 调整段落字体大小 */
+.markdown-section p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 调整代码块字体大小 */
+.markdown-section pre {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.markdown-section code {
+  font-size: 14px;
+}
+
+/* 调整侧边栏字体大小 */
+.sidebar {
+  font-size: 14px;
+}
+
+.sidebar ul li a {
+  font-size: 14px;
+}
+
+/* 调整导航栏字体大小 */
+.navbar {
+  font-size: 14px;
+}
+
+/* 调整表格字体大小 */
+.markdown-section table {
+  font-size: 14px;
+}
+
+/* 调整引用块字体大小 */
+.markdown-section blockquote {
+  font-size: 15px;
+}
+
+/* 调整列表字体大小 */
+.markdown-section ul,
+.markdown-section ol {
+  font-size: 16px;
+}
+
+/* 响应式字体大小调整 */
+@media (max-width: 768px) {
+  .markdown-section {
+    font-size: 14px;
+  }
+  
+  .markdown-section h1 {
+    font-size: 1.8em;
+  }
+  
+  .markdown-section h2 {
+    font-size: 1.5em;
+  }
+  
+  .markdown-section h3 {
+    font-size: 1.3em;
+  }
+}

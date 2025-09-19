@@ -74,3 +74,6 @@ rebel.xml
 *.hprof
 .fastRequest
 .maven-copied
+
+.vitepress/dist
+.vitepress/cache
