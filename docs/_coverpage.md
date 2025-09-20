@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg" alt="Spring Boot 3.x">
   <img src="https://img.shields.io/badge/Java-17+-orange.svg" alt="Java 17+">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
-  <img src="https://img.shields.io/badge/Maven-3.6+-red.svg" alt="Maven 3.6+">
+  <img src="https://img.shields.io/badge/Maven-3.9+-red.svg" alt="Maven 3.9+">
 </div>
 
 <div class="cover-features">
