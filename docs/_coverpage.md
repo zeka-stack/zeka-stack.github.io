@@ -109,6 +109,23 @@
   </div>
 </div>
 
+<div class="cover-links">
+  <div class="links-container">
+    <a href="https://blog.dong4j.site" target="_blank" class="link-item">
+      <span class="link-icon">📝</span>
+      <span class="link-text">博客</span>
+    </a>
+    <a href="https://home.dong4j.site" target="_blank" class="link-item">
+      <span class="link-icon">🏠</span>
+      <span class="link-text">个人主页</span>
+    </a>
+    <a href="https://resume.dong4j.site" target="_blank" class="link-item">
+      <span class="link-icon">📄</span>
+      <span class="link-text">个人履历</span>
+    </a>
+  </div>
+</div>
+
 <style>
 /* Logo 样式调整 */
 .cover-logo {
@@ -275,6 +292,61 @@
   box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 
+.cover-links {
+  margin: 0;
+  text-align: center;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 0;
+  right: 0;
+}
+
+.links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #42b983;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.link-item:hover {
+  background: #42b983;
+  color: white;
+  transform: none;
+  box-shadow: none;
+}
+
+.link-icon {
+  font-size: 1em;
+  margin: 0;
+  display: inline;
+}
+
+.link-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+}
+
 .cover-architecture {
   margin: 50px 0;
   text-align: center;
@@ -363,6 +435,30 @@
     margin: 10px auto;
     width: 200px;
   }
+  
+  .cover-links {
+    padding: 10px 15px;
+    margin: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+  
+  .links-container {
+    gap: 15px;
+  }
+  
+  .link-item {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  .link-icon {
+    font-size: 0.9em;
+  }
+  
+  .link-text {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -376,6 +472,23 @@
   
   .architecture-layers {
     grid-template-columns: 1fr;
+  }
+  
+  .links-container {
+    gap: 10px;
+  }
+  
+  .link-item {
+    padding: 3px 6px;
+    font-size: 11px;
+  }
+  
+  .link-icon {
+    font-size: 0.8em;
+  }
+  
+  .link-text {
+    font-size: 11px;
   }
 }
 </style>
