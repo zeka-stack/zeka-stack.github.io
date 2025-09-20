@@ -98,6 +98,14 @@
       <h4>Felo Space</h4>
       <p>业务系统模块</p>
     </div>
+    <div class="layer">
+      <h4>Cubo Starter Examples</h4>
+      <p>完善的单元测试与示例</p>
+    </div>
+    <div class="layer">
+      <h4>Supports</h4>
+      <p>完善的支撑与自动化脚本</p>
+    </div>
   </div>
 </div>
 
