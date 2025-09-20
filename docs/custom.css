@@ -1,109 +1,259 @@
 /* 自定义字体大小样式 */
 
-/* 调整整体字体大小 */
-.markdown-section {
-  font-size: 16px; /* 默认字体大小，可以调整 */
-  line-height: 1.6; /* 行高，提高可读性 */
+/* 确保内容区域有合适的最大宽度和居中 */
+#app {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
 }
 
-/* 调整标题字体大小 */
+/* 主内容区域样式 */
+.app-name {
+    text-align: center !important;
+}
+
+/* 调整整体字体大小 - 使用 !important 确保优先级 */
+.markdown-section {
+    font-size: 18px !important; /* 默认字体大小，可以调整 */
+    line-height: 1.8 !important; /* 行高，提高可读性 */
+    max-width: 75% !important; /* 使用百分比，根据页面大小调整 */
+    margin: 0 auto !important; /* 居中显示 */
+    padding: 2em 3em !important; /* 左右留出更多空间 */
+}
+
+/* 调整标题字体大小 - 使用 !important 确保优先级 */
 .markdown-section h1 {
-  font-size: 2.2em;
-  margin-top: 0.5em;
-  margin-bottom: 0.3em;
+    font-size: 2.5em !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.3em !important;
 }
 
 .markdown-section h2 {
-  font-size: 1.8em;
-  margin-top: 0.8em;
-  margin-bottom: 0.3em;
+    font-size: 2.0em !important;
+    margin-top: 0.8em !important;
+    margin-bottom: 0.3em !important;
 }
 
 .markdown-section h3 {
-  font-size: 1.5em;
-  margin-top: 0.8em;
-  margin-bottom: 0.3em;
+    font-size: 1.7em !important;
+    margin-top: 0.8em !important;
+    margin-bottom: 0.3em !important;
 }
 
 .markdown-section h4 {
-  font-size: 1.3em;
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
+    font-size: 1.4em !important;
+    margin-top: 0.6em !important;
+    margin-bottom: 0.2em !important;
 }
 
 .markdown-section h5 {
-  font-size: 1.1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.2em;
+    font-size: 1.2em !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.2em !important;
 }
 
 .markdown-section h6 {
-  font-size: 1em;
-  margin-top: 0.4em;
-  margin-bottom: 0.2em;
+    font-size: 1.1em !important;
+    margin-top: 0.4em !important;
+    margin-bottom: 0.2em !important;
 }
 
-/* 调整段落字体大小 */
+/* 调整段落字体大小 - 使用 !important 确保优先级 */
 .markdown-section p {
-  font-size: 16px;
-  line-height: 1.6;
+    font-size: 19px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 1em !important;
 }
 
-/* 调整代码块字体大小 */
+/* 调整代码块字体大小和样式 - 使用 !important 确保优先级 */
 .markdown-section pre {
-  font-size: 14px;
-  line-height: 1.4;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin: 1.5em 0 !important;
+    padding: 1.2em !important;
+    border-radius: 6px !important;
+    background-color: #f6f8fa !important;
+    border: 1px solid #e1e4e8 !important;
+    overflow-x: auto !important;
 }
 
 .markdown-section code {
-  font-size: 14px;
+    font-size: 16px !important;
+    padding: 0.2em 0.4em !important;
+    background-color: #f6f8fa !important;
+    border-radius: 3px !important;
+    border: 1px solid #e1e4e8 !important;
 }
 
-/* 调整侧边栏字体大小 */
+/* 代码块内的代码样式 */
+.markdown-section pre code {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* 调整侧边栏字体大小 - 使用 !important 确保优先级 */
 .sidebar {
-  font-size: 14px;
+    font-size: 18px !important;
 }
 
 .sidebar ul li a {
-  font-size: 14px;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    padding: 0.4em 0.6em !important;
 }
 
-/* 调整导航栏字体大小 */
+/* 侧边栏标题样式 */
+.sidebar h1,
+.sidebar h2,
+.sidebar h3,
+.sidebar h4,
+.sidebar h5,
+.sidebar h6 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin: 0.8em 0 0.4em 0 !important;
+}
+
+/* 侧边栏嵌套列表 */
+.sidebar ul ul li a {
+    font-size: 16px !important;
+    padding-left: 1.2em !important;
+}
+
+/* 侧边栏当前页面高亮 */
+.sidebar ul li.active > a {
+    font-weight: 600 !important;
+    color: #42b983 !important;
+}
+
+/* 调整导航栏字体大小 - 使用 !important 确保优先级 */
 .navbar {
-  font-size: 14px;
+    font-size: 16px !important;
 }
 
-/* 调整表格字体大小 */
+/* 调整表格字体大小和样式 - 使用 !important 确保优先级 */
 .markdown-section table {
-  font-size: 14px;
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+    margin: 1.5em 0 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
 }
 
-/* 调整引用块字体大小 */
+.markdown-section table th,
+.markdown-section table td {
+    padding: 12px 16px !important;
+    border: 1px solid #e1e4e8 !important;
+    text-align: left !important;
+}
+
+.markdown-section table th {
+    background-color: #f6f8fa !important;
+    font-weight: 600 !important;
+}
+
+/* 调整引用块字体大小和样式 - 使用 !important 确保优先级 */
 .markdown-section blockquote {
-  font-size: 15px;
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+    margin: 0.4em 0 !important; /* 进一步减少上下间距 */
+    padding: 0.1em 1em !important; /* 进一步减少内边距 */
+    border-left: 4px solid #42b983 !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0 4px 4px 0 !important;
 }
 
-/* 调整列表字体大小 */
+/* 调整列表字体大小和间距 - 使用 !important 确保优先级 */
 .markdown-section ul,
 .markdown-section ol {
-  font-size: 16px;
+    font-size: 19px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 1em !important;
+    padding-left: 1.5em !important;
 }
 
-/* 响应式字体大小调整 */
+/* 调整列表项间距 */
+.markdown-section ul li,
+.markdown-section ol li {
+    margin-bottom: 0.5em !important;
+    line-height: 1.7 !important;
+}
+
+/* 调整嵌套列表间距 */
+.markdown-section ul ul,
+.markdown-section ol ol,
+.markdown-section ul ol,
+.markdown-section ol ul {
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+
+/* 响应式字体大小调整 - 使用 !important 确保优先级 */
+@media (min-width: 1400px) {
+    .markdown-section {
+        max-width: 70% !important; /* 超大屏幕使用70%宽度 */
+        padding: 2em 4em !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .markdown-section {
+        max-width: 80% !important; /* 大屏幕使用80%宽度 */
+        padding: 2em 3em !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .markdown-section {
+        max-width: 85% !important; /* 中等屏幕使用85%宽度 */
+        padding: 2em 2em !important;
+    }
+}
+
 @media (max-width: 768px) {
   .markdown-section {
-    font-size: 14px;
+      font-size: 16px !important;
+      padding: 1em 1.5em !important; /* 移动端也保持左右间距 */
+      max-width: 95% !important; /* 移动端使用95%宽度，留一点边距 */
   }
   
   .markdown-section h1 {
-    font-size: 1.8em;
+      font-size: 2.0em !important;
   }
   
   .markdown-section h2 {
-    font-size: 1.5em;
+      font-size: 1.7em !important;
   }
   
   .markdown-section h3 {
-    font-size: 1.3em;
+      font-size: 1.4em !important;
+  }
+
+    .markdown-section p {
+        font-size: 17px !important;
+    }
+
+    .markdown-section ul,
+    .markdown-section ol {
+        font-size: 17px !important;
+    }
+
+    /* 移动端侧边栏字体调整 */
+    .sidebar {
+        font-size: 16px !important;
+    }
+
+    .sidebar ul li a {
+        font-size: 16px !important;
+        padding: 0.3em 0.5em !important;
+    }
+
+    .sidebar h1,
+    .sidebar h2,
+    .sidebar h3,
+    .sidebar h4,
+    .sidebar h5,
+    .sidebar h6 {
+        font-size: 18px !important;
   }
 }
