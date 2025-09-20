@@ -1,4 +1,8 @@
-# 🧑‍💻 简介
+# 🧩 如何用多层 parent 管理 Maven 项目依赖
+
+![/images/cover/20250619222912_4xnQSDPb.webp](https://cdn.dong4j.site/source/image/20250619222912_4xnQSDPb.webp)
+
+## 🧑‍💻 简介
 
 作为一个 Java 后端工程师，我相信你一定遇到过下面这些问题：
 
@@ -346,3 +350,5 @@ Zeka.Stack 的目标不是快速搭项目，而是提供一套 **可维护、可
 
 如需查看完整结构，请参考 [arco-supreme](https://github.com/zeka-stack/arco-supreme)
 和 [arco-builder](https://github.com/zeka-stack/arco-builder)。
+
+备用站点: [🧩 如何用多层 parent 管理 Maven 项目依赖](https://www.dong4j.dev/posts/maven-parent-pom-hierarchy/)

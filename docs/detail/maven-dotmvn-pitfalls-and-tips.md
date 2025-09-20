@@ -1,7 +1,11 @@
+# 🧨 你可能忽略的 .mvn：Maven 本地化配置的秘密与坑点解析
+
+![/images/cover/20250619222955_V8GjChCB.webp](https://cdn.dong4j.site/source/image/20250619222955_V8GjChCB.webp)
+
 ## 📖 简介
 
-在上一篇 [[🧪 Maven Profiles 的使用场景案例分享]] 我们通过 Profiles 的实际案例大致了解了它的使用方式, 并详细梳理了 Profiles 的优先级,
-不过也挖了一个坑: 为啥我要将 `settings.xml` 和项目代码放在一起?
+在上一篇 [[maven-profiles-use-cases|🧪 Maven Profiles 的使用场景案例分享]] 我们通过 Profiles 的实际案例大致了解了它的使用方式, 并详细梳理了
+Profiles 的优先级, 不过也挖了一个坑: 为啥我要将 `settings.xml` 和项目代码放在一起?
 
 比如 [arco-supreme](https://github.com/zeka-stack/arco-supreme) 项目的代码结构为:
 
@@ -134,7 +138,7 @@ $ tree -a -I '.git|.idea'
 
 IDEA 很早就开始支持 `.mvn` 了:
 
-![image-20250605234114841](assets/image-20250605234114841.png)
+![20250619222956_qi8c6U6P.webp](https://cdn.dong4j.site/source/image/20250619222956_qi8c6U6P.webp)
 
 在选择使用 **Maven Wrapper（Maven 包装器）** 的情况下，IDEA 会自动识别并读取项目中的 .mvn 目录及相关配置，从而确保项目的构建环境在团队内部始终保持一致。一旦
 Maven 发布了新特性，我们只需更新项目中的 .mvn 配置，团队成员通过一次 git pull 操作即可同步使用，避免了每位开发者手动升级或配置 Maven 的繁琐步骤。
@@ -214,7 +218,7 @@ CI/CD 密钥注入策略，使得项目既能共享统一的构建配置，又�
 群晖 NAS 自带 Docker, 所以最简单的方式就是使用 Docker 部署, 首先是下载 `sonatype/nexus3` 镜像, 由于众所周知的原因, 镜像下载各凭本事了,
 这里就不过多赘述了.
 
-![20250606002411_wvZuAYX1](assets/20250606002411_wvZuAYX1.png)
+![20250606002411_wvZuAYX1.webp](https://cdn.dong4j.site/source/image/20250606002411_wvZuAYX1.webp)
 
 1. 映射一个目录用于存储文件;
 2. `NEXUS_CONTEXT` 用于设置 WebUI 的 `context`, 这里设置的 `/`, 即使用 `http://ip:8081/` 访问;
@@ -227,7 +231,7 @@ mkdir: cannot create directory opt/sonatype/nexus/../sonatype-work/nexus3/tmp': 
 
 在 NAS 上这种问题很常见, 一般是挂载的目录权限问题, 所以最简单的方式是修改目录写入权限:
 
-![20250606002933_LHWRuazy](assets/20250606002933_LHWRuazy.png)
+![20250606002933_LHWRuazy.webp](https://cdn.dong4j.site/source/image/20250606002933_LHWRuazy.webp)
 
 容器启动后, 会提示 `admin` 的密码所在的目录, 找到并登录即可.
 
@@ -244,11 +248,11 @@ mkdir: cannot create directory opt/sonatype/nexus/../sonatype-work/nexus3/tmp': 
 
 这里第一步是先创建一个 `nx-deploy` 角色, 授予 `nx-repository-view-maven2-*-edit` 权限:
 
-![image-20250605005132656](assets/image-20250605005132656.png)
+![20250619223002_rxdfxeaz.webp](https://cdn.dong4j.site/source/image/20250619223002_rxdfxeaz.webp)
 
 然后新建一个 `deployer` 的用户, 分配 `nx-anonymous` 和 `nx-deploy` 角色:
 
-![20250605005329_m9trpu9m](assets/20250605005329_m9trpu9m.png)
+![20250605005329_m9trpu9m.webp](https://cdn.dong4j.site/source/image/20250605005329_m9trpu9m.webp)
 
 这样我们就具有一个只能读取和上传组件到仓库的用户了, 接下来就是配置 `settings.xml`.
 
@@ -360,11 +364,7 @@ $ mvn --settings=.mvn/zeka.stack.settings.xml -T12 <goal>
                     <id>nexus-public</id>
                     <url>${env.MVN_PRIVATE_PUBLIC_URL}</url>
                     <releases><enabled>true</enabled></releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                        <!-- ✅ 永远不检查更新, 因为是多个独立的 maven 项目, 项目之间使用 <relativePath/> 来杜绝本地依赖查找, 导致每次使用 mvn 时都会从远端更新快照版本 所以这里设置为禁用更新  -->
-                        <updatePolicy>never</updatePolicy>
-                    </snapshots>
+                    <snapshots><enabled>true</enabled></snapshots>
                 </repository>
             </repositories>
             <pluginRepositories>
@@ -374,11 +374,7 @@ $ mvn --settings=.mvn/zeka.stack.settings.xml -T12 <goal>
                     <id>nexus-plugin</id>
                     <url>${env.MVN_PRIVATE_PUBLIC_URL}</url>
                     <releases><enabled>true</enabled></releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                        <!-- ✅ 永远不检查更新, 因为是多个独立的 maven 项目, 项目之间使用 <relativePath/> 来杜绝本地依赖查找, 导致每次使用 mvn 时都会从远端更新快照版本 所以这里设置为禁用更新  -->
-                        <updatePolicy>never</updatePolicy>
-                    </snapshots>
+                    <snapshots><enabled>true</enabled></snapshots>
                 </pluginRepository>
             </pluginRepositories>
             <!-- @formatter:on -->
@@ -409,7 +405,7 @@ export MVN_PRIVATE_RELEASE_URL="http://nas-ip:8081/repository/maven-releases/"
 
 不过需要注意的有几点, 下面这个图更加容易理解:
 
-![](assets/mvn.drawio.svg)
+![20250619203051_ecoDWkfA.webp](https://cdn.dong4j.site/source/image/20250619203051_ecoDWkfA.webp)
 
 #### 📤 deploy
 
@@ -500,3 +496,7 @@ Zeka.Stack 从来不是为了炫技，而是为了**让每一位开发者都能�
 细节决定体验，架构决定下限，而工程体系，正是我们抵御复杂性最重要的护城河。
 
 Zeka.Stack，不是“多余”，而是“刚好”。
+
+---
+
+备用站点: [🧨 你可能忽略的 .mvn：Maven 本地化配置的秘密与坑点解析](https://www.dong4j.dev/posts/maven-dotmvn-pitfalls-and-tips/)

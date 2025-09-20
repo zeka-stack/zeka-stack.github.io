@@ -1,7 +1,10 @@
+# 🧪 Maven Profiles 的使用场景案例分享
+
+![/images/cover/20250619222904_rSWsc5GU.webp](https://cdn.dong4j.site/source/image/20250619222904_rSWsc5GU.webp)
+
 ## 📖 简介
 
-在上一篇 [🚀 从注册到发布：Maven 中央仓库上传 jar 实践](../2.从零注册到发布：Maven%20中央仓库上传%20jar%20实践/🚀%20从注册到发布：Maven%20中央仓库上传%20jar%20实践.md)
-中，我们成功将本地 jar 包上传到了 Maven 公共仓库。
+在上一篇 [[maven-central-publishing-practice|🚀 从注册到发布：Maven 中央仓库上传 jar 实践]] 中，我们成功将本地 jar 包上传到了 Maven 公共仓库。
 
 那篇文章的配置比较基础，主要目的是跑通流程。而在实际开发中，为了更好地适配不同环境，还需要做一些必要的优化配置。就像写代码一样，第一步是跑通，再逐步打磨细节，这次我们就来看看如何通过
 Maven Profiles 实现多环境切换。
@@ -44,7 +47,7 @@ Maven 私服.
 你也别使用命令行操作 mvn 了, 因为每次还要加上 `-P` 参数, 不可能现在还没有用 IDEA 开发 Java 项目的小伙伴吧. 在 IDEA 的 Maven 面板可以方便的选择
 Profiles:
 
-![20250603231726_T0suOxTU](assets/20250603231726_T0suOxTU.png)
+![20250603231726_T0suOxTU.webp](https://cdn.dong4j.site/source/image/20250603231726_T0suOxTU.webp)
 
 ### ⚙️ settings.xml 配置
 
@@ -84,10 +87,10 @@ Profiles:
 
 你是不是满脸问号? 就像他一样
 
-![large](assets/large-8964629.jpg)
+![20250619222912_fGtiJnNx.webp](https://cdn.dong4j.site/source/image/20250619222912_fGtiJnNx.webp)
 
 既然使用了环境变量来保证安全性, 我肯定是将 `settings.xml` 放在了项目中, 至于为什么这样做,
-我想在 [[🧨 你可能忽略的 .mvn：Maven 本地化配置的秘密与坑点解析]] 一文中分享我的想法.
+我想在 [[maven-dotmvn-pitfalls-and-tips|🧨 你可能忽略的 .mvn：Maven 本地化配置的秘密与坑点解析]] 一文中分享我的想法.
 
 ---
 
@@ -534,3 +537,5 @@ mvn help:effective-pom
 ## 📚 参考
 
 [Introduction to Build Profiles](https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
+
+备用站点: [🧪 Maven Profiles 的使用场景案例分享](https://www.dong4j.dev/posts/maven-profiles-use-cases/)

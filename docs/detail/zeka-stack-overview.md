@@ -1,3 +1,7 @@
+# 💥 从零构建脚手架：Zeka.Stack 设计理念、解决痛点与亮点特性
+
+![/images/cover/20250619222904_K0FKPfoe.webp](https://cdn.dong4j.site/source/image/20250619222904_K0FKPfoe.webp)
+
 ## 🧠 初心：为什么要从零开发脚手架？
 
 在众多脚手架如 RuoYi、yudao 等百花齐放的当下，从零造个轮子听起来似乎有些“何苦为难自己”。但现实却是，**用别人的轮子，不一定跑得更快**。
@@ -189,3 +193,6 @@ Zeka.Stack 不仅是个脚手架，它是一套开发体系，一整套从零到
 📢 如果你感兴趣，欢迎留言讨论、建议或关注系列更新。别忘了分享给同样为技术苦恼的朋友们吧！
 
 ------
+
+
+备用站点: [💥 从零构建脚手架：Zeka.Stack 设计理念、解决痛点与亮点特性](https://www.dong4j.dev/posts/zeka-stack-overview/)

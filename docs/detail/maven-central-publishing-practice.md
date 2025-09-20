@@ -1,3 +1,7 @@
+# 🚀 从注册到发布：Maven 中央仓库上传 jar 实践
+
+![/images/cover/20250619222912_Q8tDSjiD.webp](https://cdn.dong4j.site/source/image/20250619222912_Q8tDSjiD.webp)
+
 ## ✨ 前言
 
 虽然 Zeka.Stack 是全开源的, 但是每个组件也可以单独使用, 为了避免需要克隆所有项目然后本地 install 才能使用, 所以最简单的方式就是将 Zeka.Stack
@@ -22,23 +26,23 @@
 
 这里第一步就是先无脑注册一个账号, [这里是注册地址](https://central.sonatype.com/):
 
-![image-20250603192010501](assets/image-20250603192010501.png)
+![20250619222914_ltlupn6O.webp](https://cdn.dong4j.site/source/image/20250619222914_ltlupn6O.webp)
 
 我这里直接选择通过 Google 账号进行注册.
 
 然后就是添加 `Namespace` 了:
 
-![image-20250603192155231](assets/image-20250603192155231.png)
+![20250619222917_iczSYJjT.webp](https://cdn.dong4j.site/source/image/20250619222917_iczSYJjT.webp)
 
 在发布组件之前，必须选择一个命名空间。在 Maven 生态系统中，这也称为 groupId，它是描述发布到 Maven Central 的任何组件的三个必需坐标之一，即
 groupId、artifactId 和 version。
 
 创建一个命名空间后, 需要验证才能使用. 因为我使用的是自定义域名, 所以这里只能添加一个 DNS TXT 记录的方式来验证命名空间:
 
-![20250603192356_ExYPjO5K](assets/20250603192356_ExYPjO5K.png)
+![20250603192356_ExYPjO5K.webp](https://cdn.dong4j.site/source/image/20250603192356_ExYPjO5K.webp)
 
 DNS TXT 记录添加几分钟后即可认证成功:  
-![image-20250603192649330](assets/image-20250603192649330.png)
+![20250619222920_ysXkjYVJ.webp](https://cdn.dong4j.site/source/image/20250619222920_ysXkjYVJ.webp)
 
 账号的申请后验证都通过之后, 接下来才是重头戏, 其实也没那么复杂, 按照教程一步步来即可.
 
@@ -46,7 +50,7 @@ DNS TXT 记录添加几分钟后即可认证成功:
 
 必须使用用户令牌才能将工件发布到中央存储库。
 
-![image-20250603193259613](assets/image-20250603193259613.png)
+![20250619222923_8gSgDepK.webp](https://cdn.dong4j.site/source/image/20250619222923_8gSgDepK.webp)
 
 点击 `Generate User Token` 直接生成一个 `server` 配置, 这个是需要配置到 `settings.xml` 中的, 生成的 `Token` 可以直接拷贝, 比如:
 
@@ -84,7 +88,7 @@ DNS TXT 记录添加几分钟后即可认证成功:
 
 **需要注意的是这个 `Token` 只能生成一个, 重新生成的时候会将原来的 `Token` 清除:**
 
-![image-20250603193453729](assets/image-20250603193453729.png)
+![20250619222926_27ssy3pf.webp](https://cdn.dong4j.site/source/image/20250619222926_27ssy3pf.webp)
 
 ---
 
@@ -95,19 +99,19 @@ GPG 签名允许使用者验证构件的发布者身份。通过签名，开发�
 
 所以我们还要准备 GPG 签名工具, 在 macOS 上, 我使用 [GPGTools](https://gpgtools.org/):
 
-![image-20250603194258075](assets/image-20250603194258075.png)
+![20250619222929_u6CC0x4X.webp](https://cdn.dong4j.site/source/image/20250619222929_u6CC0x4X.webp)
 
 我安装的版本信息:
 
-![image-20250603194830563](assets/image-20250603194830563.png)
+![20250619222930_2FRq675B.webp](https://cdn.dong4j.site/source/image/20250619222930_2FRq675B.webp)
 
 第一步当然是新建一个 key, 一定要记住 **密码**. 密钥过期时间是可以自定义的, 这个根据实际情况自行修改.
 
-![20250603195038_53CIUXj3](assets/20250603195038_53CIUXj3.png)
+![20250603195038_53CIUXj3.webp](https://cdn.dong4j.site/source/image/20250603195038_53CIUXj3.webp)
 
 最后是将公钥上传到服务器, 服务器地址可在设置中配置, 默认的是: [hkps://keys.openpgp.org](hkps://keys.openpgp.org)
 
-![20250603194948_DIZqxAmK](assets/20250603194948_DIZqxAmK.png)
+![20250603194948_DIZqxAmK.webp](https://cdn.dong4j.site/source/image/20250603194948_DIZqxAmK.webp)
 
 > 如果 windows 系统，可以下载<https://www.gpg4win.org/> ，使用方式差不多
 
@@ -178,7 +182,7 @@ pkg:maven/dev11.dong4j/arco-supreme@0.0.1?type=pom:
 
 在控制台也有相关的错误信息:
 
-![image-20250603200652251](assets/image-20250603200652251.png)
+![20250619222934_GKt5Pxl8.webp](https://cdn.dong4j.site/source/image/20250619222934_GKt5Pxl8.webp)
 
 ### 🧵 central-publishing-maven-plugin
 
@@ -252,7 +256,7 @@ true，则上传后的包会处于 VALIDATED 状态。此时需要登录 [https:
 </plugin>
 ```
 
-![20250603201655_OkWm7nYH](assets/20250603201655_OkWm7nYH.png)
+![20250603201655_OkWm7nYH.webp](https://cdn.dong4j.site/source/image/20250603201655_OkWm7nYH.webp)
 
 此插件在 `verify` 阶段生效:
 
@@ -310,7 +314,7 @@ true，则上传后的包会处于 VALIDATED 状态。此时需要登录 [https:
 
 可以先看看 [官方文档](https://central.sonatype.org/publish/requirements/). 其实主要是提供一些元数据标签, 当发布到 Maven 公共仓库时,
 会根据这些元数据来展示相应的数据, 比如:  
-![20250603210036_U24q7Tb5](assets/20250603210036_U24q7Tb5.png)
+![20250603210036_U24q7Tb5.webp](https://cdn.dong4j.site/source/image/20250603210036_U24q7Tb5.webp)
 
 按照官方的要求, 我整理了一个 `pom.xml` 模板:
 
@@ -417,7 +421,7 @@ true，则上传后的包会处于 VALIDATED 状态。此时需要登录 [https:
 ```
 
 可以添加到 IDEA 的 `代码模板` 中, 简化 pom.xml 的创建工作:  
-![image-20250603210326171](assets/image-20250603210326171.png)
+![20250619222940_oNPXhAx1.webp](https://cdn.dong4j.site/source/image/20250619222940_oNPXhAx1.webp)
 
 ---
 
@@ -425,15 +429,15 @@ true，则上传后的包会处于 VALIDATED 状态。此时需要登录 [https:
 
 - 执行 mvn clean deploy 命令，进行打包并上传。
 
-  ![image-20250603193051783](assets/image-20250603193051783.png)
+  ![20250619222947_Lfdc0WXG.webp](https://cdn.dong4j.site/source/image/20250619222947_Lfdc0WXG.webp)
 
 - 如果配置了 `autoReleaseAfterClose` 为 true，则不需要到控制台手动验证。
 
-  ![image-20250603192954658](assets/image-20250603192954658.png)
+  ![20250619222951_S46PSUjD.webp](https://cdn.dong4j.site/source/image/20250619222951_S46PSUjD.webp)
 
 - 等待同步，通常 30 分钟内可在 Maven 中央仓库下载，最多 4 小时后可在搜索中找到。
 
-![image-20250603203225801](assets/image-20250603203225801.png)
+![20250619222952_xeumiQoj.webp](https://cdn.dong4j.site/source/image/20250619222952_xeumiQoj.webp)
 
 ---
 
@@ -442,7 +446,7 @@ true，则上传后的包会处于 VALIDATED 状态。此时需要登录 [https:
 前面我们都是按照正式版发布流程来验证部署的, 但是在开发过程中肯定存在快照版本, 可供小伙伴测试使用. 而要在 Maven
 中央仓库发布快照需要额外的配置:
 
-![20250603203613_sT4kRah3](assets/20250603203613_sT4kRah3.png)
+![20250603203613_sT4kRah3.webp](https://cdn.dong4j.site/source/image/20250603203613_sT4kRah3.webp)
 
 然后修改 pom.xml 中的 `version`:
 
@@ -477,3 +481,5 @@ true，则上传后的包会处于 VALIDATED 状态。此时需要登录 [https:
 ## 📚 参考
 
 [maven central repository Documentation](https://central.sonatype.org/publish/publish-portal-guide/)
+
+备用站点: [🚀 从注册到发布：Maven 中央仓库上传 jar 实践](https://www.dong4j.dev/posts/maven-central-publishing-practice/)

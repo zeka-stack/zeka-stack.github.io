@@ -1,3 +1,7 @@
+# 🎉 用 Zeka Stack 打造可维护、高效开发的工程骨架
+
+![/images/cover/20250619222955_7BJzvcLl.webp](https://cdn.dong4j.site/source/image/20250619222955_7BJzvcLl.webp)
+
 ## 🧑‍💻 简介
 
 在日常开发中，写业务不难，难的是「工程一上来就乱」、「依赖一多就扯皮」、「构建一复杂就抓狂」。**Zeka Stack** 希望通过系统化的工程体系来解决上述问题.
@@ -334,3 +338,5 @@ Zeka Stack 不是一个框架，而是一种理念：
 > 结构清晰，协作顺畅，自动高效，持久可维护。
 
 如果你对企业级多模块项目感到痛苦、开发效率缓慢、维护负担繁重，或许是时候尝试 Zeka Stack 式的架构哲学。
+
+备用站点: [🎉 用 Zeka Stack 打造可维护、高效开发的工程骨架](https://www.dong4j.dev/posts/zeka-stack-engineering-scaffold/)
