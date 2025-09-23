@@ -9,7 +9,7 @@
 那篇文章的配置比较基础，主要目的是跑通流程。而在实际开发中，为了更好地适配不同环境，还需要做一些必要的优化配置。就像写代码一样，第一步是跑通，再逐步打磨细节，这次我们就来看看如何通过
 Maven Profiles 实现多环境切换。
 
-所以这篇文档我将介绍 Maven 的 Profiles 配置, 目标是让 Zeka.Stack 相关的组件既能上传到 Maven 公共仓库, 也能让大家在进行二次开发后, 只上传到公司
+所以这篇文档笔者将介绍 Maven 的 Profiles 配置, 目标是让 Zeka.Stack 相关的组件既能上传到 Maven 公共仓库, 也能让大家在进行二次开发后, 只上传到公司
 Maven 私服.
 
 当然这仅仅是 Maven 的 Profiles 的一个实际应用场景, 其他还比如 根据不同 Profile 引入或排除某些依赖; 针对多模块项目，通过 Profiles 控制是否构建某些子模块;
@@ -35,14 +35,14 @@ Maven 私服.
 </profiles>
 ```
 
-我的目的非常简单:
+笔者的目的非常简单:
 
-1. 我在维护 Zeka.Stack 项目时, 为了方便大家单独使用某些组件, 最简单的方式就是上传到 Maven 公共仓库, 这样大家就不需要本地编译了, 所以我的第一个配置就是
+1. 我在维护 Zeka.Stack 项目时, 为了方便大家单独使用某些组件, 最简单的方式就是上传到 Maven 公共仓库, 这样大家就不需要本地编译了, 所以笔者的第一个配置就是
    `central`, 里面是将 jar 包部署到 Maven 公共仓库所必须的插件;
 2. 等 Zeka.Stack 做大做强之后, 有些小伙伴就会 clone 源码进行二次开发, 修改为自己的脚手架, 那就得部署到公司的 Maven 私服, 所以第二个配置就是
    `private`, 用于添加公司的 `distributionManagement` 配置.
 
-**你就说我考虑的周不周到吧.**
+**你就说笔者考虑的周不周到吧.**
 
 你也别使用命令行操作 mvn 了, 因为每次还要加上 `-P` 参数, 不可能现在还没有用 IDEA 开发 Java 项目的小伙伴吧. 在 IDEA 的 Maven 面板可以方便的选择
 Profiles:
@@ -51,7 +51,7 @@ Profiles:
 
 ### ⚙️ settings.xml 配置
 
-要实现我上面的目标, 单单在 pom.xml 中添加 profiles 是无法实现的, 因为上传 Maven 仓库还需要认证的配置, 所以我们还需要配置 `settings.xml`:
+要实现笔者上面的目标, 单单在 pom.xml 中添加 profiles 是无法实现的, 因为上传 Maven 仓库还需要认证的配置, 所以我们还需要配置 `settings.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -89,8 +89,8 @@ Profiles:
 
 ![20250619222912_fGtiJnNx.webp](https://cdn.dong4j.site/source/image/20250619222912_fGtiJnNx.webp)
 
-既然使用了环境变量来保证安全性, 我肯定是将 `settings.xml` 放在了项目中, 至于为什么这样做,
-我想在 [[maven-dotmvn-pitfalls-and-tips|🧨 你可能忽略的 .mvn：Maven 本地化配置的秘密与坑点解析]] 一文中分享我的想法.
+既然使用了环境变量来保证安全性, 笔者肯定是将 `settings.xml` 放在了项目中, 至于为什么这样做,
+笔者想在 [[maven-dotmvn-pitfalls-and-tips|🧨 你可能忽略的 .mvn：Maven 本地化配置的秘密与坑点解析]] 一文中分享笔者的想法.
 
 ---
 
@@ -100,7 +100,7 @@ Profiles:
 
 人大金仓的数据库都用过吧, 你说你没用过? 那你一定没开发过政府项目.
 
-我们生产环境使用的数据库是 **人大金仓**, 而开发和测试环境则使用的 `PostgreSQL`, 你问我为啥不在开发和测试环境也部署一套 **人大金仓**, 我只能说
+我们生产环境使用的数据库是 **人大金仓**, 而开发和测试环境则使用的 `PostgreSQL`, 你问笔者为啥不在开发和测试环境也部署一套 **人大金仓**, 我只能说
 **得加钱**.
 
 所以这就出现了一个问题: 负责部署的同学还要手动修改 pom.xml 的依赖来打包:
@@ -140,7 +140,7 @@ Profiles:
 ## 📌 Profiles 必知必会
 
 通过上面 2 个案例, 我们了解到 Maven Profiles 的部分使用方式, 如果想详细了解 Profiles
-的话, [官方文档](https://maven.apache.org/guides/introduction/introduction-to-profiles.html) 肯定是要看一遍的, 我这里总结了几个经常使用到的知识点,
+的话, [官方文档](https://maven.apache.org/guides/introduction/introduction-to-profiles.html) 肯定是要看一遍的, 笔者这里总结了几个经常使用到的知识点,
 扩充一下非主线知识库.
 
 ### 🧩 多 profiles 同时激活
@@ -220,7 +220,7 @@ POM 中被激活的 profile 里的元素，会覆盖 POM 中同名的全局配�
 
 ---
 
-所以问题来了, 下面的配置我如果同时激活 `central` 和 `private` 的话, 会出现什么情况:
+所以问题来了, 下面的配置如果同时激活 `central` 和 `private` 的话, 会出现什么情况:
 
 ```xml
 <!-- 通过配置切换部署的仓库 -->
@@ -292,7 +292,7 @@ deploy 操作, 但是必定不会执行这块逻辑, 所以你就知道了怎么
 官方翻译过来是 **显式激活**, 也就是 **手动激活** 的意思. 按照官方的文档描述, 可以通过命名行参数 `-P` 来显式指定 profile, 也可以在
 settings.xml 中配置 `activeProfiles`, 还可以在 pom.xml 中配置 `activeByDefault`.
 
-经过上面一套组合拳下来后, 完全懵逼了, 比如我在 `settings.xml` 中配置为:
+经过上面一套组合拳下来后, 完全懵逼了, 比如笔者在 `settings.xml` 中配置为:
 
 ```xml
 <activeProfiles>
@@ -312,7 +312,7 @@ settings.xml 中配置 `activeProfiles`, 还可以在 pom.xml 中配置 `activeB
 </profile>
 ```
 
-然后我使用 `mvn deploy -P private`, 最后到底使用了哪个 profile?
+然后笔者使用 `mvn deploy -P private`, 最后到底使用了哪个 profile?
 
 所以这里就引出了 Maven 中 profile 三个定义位置的优先级问题:
 
@@ -322,9 +322,9 @@ settings.xml 中配置 `activeProfiles`, 还可以在 pom.xml 中配置 `activeB
 | 2️⃣     | settings.xml 中定义的 profile（并激活） | 用户或系统级别配置，覆盖 pom.xml |
 | 3️⃣     | pom.xml 中定义的 profile           | 项目本地配置，优先级最低         |
 
-所以像我上面的配置的话, 当打开 IDEA 加载 Maven 项目时, 生效的 profile 应该是 `central`.
+所以像笔者上面的配置的话, 当打开 IDEA 加载 Maven 项目时, 生效的 profile 应该是 `central`.
 
-而 `activeByDefault` 可以理解为一个 **兜底配置**, 如果我没有手动选择的话 (在 IDEA 中勾选 `private` 配置), 则会优先使用 `settings.xml` 中配置的
+而 `activeByDefault` 可以理解为一个 **兜底配置**, 如果笔者没有手动选择的话 (在 IDEA 中勾选 `private` 配置), 则会优先使用 `settings.xml` 中配置的
 `central` .
 
 这里结合 3 个地方的配置做一个总结:
@@ -514,7 +514,7 @@ Maven Profiles 的一种典型应用场景，但如今已不再推荐这样使�
 
 所以我实在不太能理解为什么要像 [这篇文章](https://blog.csdn.net/java_collect/article/details/83870215) 那样把配置打包过程搞得那么复杂。
 
-当然，每家公司情况不同，技术负责人理念也不尽相同——**上面只是我个人的一些实践与偏好，如果你所在团队有不同做法，那你说的就是对的 😉。**
+当然，每家公司情况不同，技术负责人理念也不尽相同——**上面只是笔者的一些实践与偏好，如果你所在团队有不同做法，那你说的就是对的 😉。**
 
 ---
 

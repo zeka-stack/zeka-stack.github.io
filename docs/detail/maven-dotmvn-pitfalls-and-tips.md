@@ -5,7 +5,7 @@
 ## 📖 简介
 
 在上一篇 [[maven-profiles-use-cases|🧪 Maven Profiles 的使用场景案例分享]] 我们通过 Profiles 的实际案例大致了解了它的使用方式, 并详细梳理了
-Profiles 的优先级, 不过也挖了一个坑: 为啥我要将 `settings.xml` 和项目代码放在一起?
+Profiles 的优先级, 不过也挖了一个坑: 为啥笔者要将 `settings.xml` 和项目代码放在一起?
 
 比如 [arco-supreme](https://github.com/zeka-stack/arco-supreme) 项目的代码结构为:
 
@@ -30,7 +30,7 @@ $ tree -a -I '.git|.idea'
 
 可以看到 `settings.xml` 文件放在了 `.mvn` 目录下, 且通过 git 来管理.
 
-为了解释我的想法, 需要先了解一下什么是 `.mvn`, 它与传统的 Maven 有什么区别.
+为了解释笔者的想法, 需要先了解一下什么是 `.mvn`, 它与传统的 Maven 有什么区别.
 
 ---
 
@@ -244,7 +244,7 @@ mkdir: cannot create directory opt/sonatype/nexus/../sonatype-work/nexus3/tmp': 
 1. **授予 `nx-repository-view-maven2-*-edit` 权限**：该权限允许用户向指定的 Maven 仓库执行部署操作（如上传构件）；
 2. **附加匿名用户所具备的所有权限**：确保该用户具备基础的仓库访问、元数据读取等能力，以避免出现 403、404 等异常。
 
-这里我将新建一个 `deployer` 用户专门用于组件上传, 且无法登录 WebUI.
+这里笔者将新建一个 `deployer` 用户专门用于组件上传, 且无法登录 WebUI.
 
 这里第一步是先创建一个 `nx-deploy` 角色, 授予 `nx-repository-view-maven2-*-edit` 权限:
 

@@ -7,7 +7,7 @@
 虽然 Zeka.Stack 是全开源的, 但是每个组件也可以单独使用, 为了避免需要克隆所有项目然后本地 install 才能使用, 所以最简单的方式就是将 Zeka.Stack
 的组件上传到 Maven 公共仓库, 所有就有这篇水文.
 
-为什么说是水文呢, 因为这类的文章网上也有很多了, 这里再写一遍其实没有啥价值, 不过为了完善我 Zeka.Stack 的知识体系, 所以还是决定写一写.
+为什么说是水文呢, 因为这类的文章网上也有很多了, 这里再写一遍其实没有啥价值, 不过为了完善笔者 Zeka.Stack 的知识体系, 所以还是决定写一写.
 
 ---
 
@@ -15,7 +15,7 @@
 
 这里演示使用自己的域名来作为 `groupId`, 所以需要 DNS 验证, 其他方式比如 GItHub, GitLab 等验证相对来说更容易些.
 
-个人觉得 GitHub 作为 `groupId` 太长了, 比如我如果使用 GitHub 验证的话 `groupId` 就是 `io.github.dong4j`, 而且为了打造自己的 IP,
+笔者觉得 GitHub 作为 `groupId` 太长了, 比如笔者使用 GitHub 验证的话 `groupId` 就是 `io.github.dong4j`, 而且为了打造自己的 IP,
 所以选择使用一个二级域名, 正好前段时间在 Cloudflare 注册了 `dong4j.dev` 的域名, 这里就可以用上了.
 
 如果要图方便的话, 可以直接使用 [arco-supreme](https://github.com/zeka-stack/arco-supreme) 这个项目来做测试.
@@ -28,7 +28,7 @@
 
 ![20250619222914_ltlupn6O.webp](https://cdn.dong4j.site/source/image/20250619222914_ltlupn6O.webp)
 
-我这里直接选择通过 Google 账号进行注册.
+笔者这里直接选择通过 Google 账号进行注册.
 
 然后就是添加 `Namespace` 了:
 
@@ -37,7 +37,7 @@
 在发布组件之前，必须选择一个命名空间。在 Maven 生态系统中，这也称为 groupId，它是描述发布到 Maven Central 的任何组件的三个必需坐标之一，即
 groupId、artifactId 和 version。
 
-创建一个命名空间后, 需要验证才能使用. 因为我使用的是自定义域名, 所以这里只能添加一个 DNS TXT 记录的方式来验证命名空间:
+创建一个命名空间后, 需要验证才能使用. 因为笔者使用的是自定义域名, 所以这里只能添加一个 DNS TXT 记录的方式来验证命名空间:
 
 ![20250603192356_ExYPjO5K.webp](https://cdn.dong4j.site/source/image/20250603192356_ExYPjO5K.webp)
 
@@ -97,11 +97,11 @@ DNS TXT 记录添加几分钟后即可认证成功:
 GPG 签名允许使用者验证构件的发布者身份。通过签名，开发者可以证明构件确实是由其本人发布的，防止他人冒充发布者上传恶意构件。Maven
 中央仓库明确要求所有上传的构件必须进行 GPG 签名，并提供相应的 .asc 签名文件。
 
-所以我们还要准备 GPG 签名工具, 在 macOS 上, 我使用 [GPGTools](https://gpgtools.org/):
+所以我们还要准备 GPG 签名工具, 在 macOS 上, 笔者使用 [GPGTools](https://gpgtools.org/):
 
 ![20250619222929_u6CC0x4X.webp](https://cdn.dong4j.site/source/image/20250619222929_u6CC0x4X.webp)
 
-我安装的版本信息:
+笔者安装的版本信息:
 
 ![20250619222930_2FRq675B.webp](https://cdn.dong4j.site/source/image/20250619222930_2FRq675B.webp)
 
@@ -119,7 +119,7 @@ GPG 签名允许使用者验证构件的发布者身份。通过签名，开发�
 
 ### 🧙‍♂️ 命令行创建密钥对
 
-当然也可以使用命令行创建密钥对，我的版本是: `gpg (GnuPG/MacGPG2) 2.2.41`
+当然也可以使用命令行创建密钥对，笔者的版本是: `gpg (GnuPG/MacGPG2) 2.2.41`
 
 ```bash
 # 创建密钥对，按提示输入用户名称和邮箱地址
@@ -133,7 +133,7 @@ gpg --list-keys username
 gpg --list-keys 30FF8D58
 
 # 上传公钥到 server key，默认上传到 hkps://keys.openpgp.org，但是提示上传失败
-# 看到网上的示例可以通过 --keyserver 指定上传的服务器地址，但是我这个版本[gpg (GnuPG/MacGPG2) 2.2.41]没有这个参数
+# 看到网上的示例可以通过 --keyserver 指定上传的服务器地址，但是笔者这个版本[gpg (GnuPG/MacGPG2) 2.2.41]没有这个参数
 # 使用 https://gpgtools.org 上传公钥就会成功
 gpg --send-keys 30FF8D58
 
@@ -160,7 +160,7 @@ gpg --delete-keys 30FF8D58
 <packaging>pom</packaging>
 ```
 
-这里的 `groupId` 就是前面说的命名空间, 必须认证通过才能正常上传, 比如我修改成 `dev11.dong4j` 就会报错:
+这里的 `groupId` 就是前面说的命名空间, 必须认证通过才能正常上传, 比如笔者修改成 `dev11.dong4j` 就会报错:
 
 ```
 ...
@@ -467,16 +467,16 @@ true，则上传后的包会处于 VALIDATED 状态。此时需要登录 [https:
 
 ## 🧾 总结
 
-以上就是如何将自己的 jar 组件上传到 Maven 公共仓库, 其实也非常简单, 按照官方教程操作一步步来也没有任何难度. 值得说的就是我遇到的问题:
+以上就是如何将自己的 jar 组件上传到 Maven 公共仓库, 其实也非常简单, 按照官方教程操作一步步来也没有任何难度. 值得说的就是笔者遇到的问题:
 
-1. 快照版本没有在 `Deployments` 页面显示, 我甚至怀疑是不是我上传失败了, 但是 `deploy` 日志又显示为成功, 后来删除 `-SNAPSHOT` 再 `deploy`
+1. 快照版本没有在 `Deployments` 页面显示, 笔者甚至怀疑是不是笔者上传失败了, 但是 `deploy` 日志又显示为成功, 后来删除 `-SNAPSHOT` 再 `deploy`
    后就能看到了;
 2. Maven 公共仓库不同于公司的私服, 私服可以配置 `release` 允许覆盖和删除. 而公共仓库服务于全球, 一旦 jar 包被其他开发者使用就不能撤回, 所
    Maven 中央仓库是不允许删除 `release` 的 jar 包的, 且只能使用 [Semantic Versioning](https://semver.org/) 的方式来修复错误,
    具体可见 [Immutability of Published Components](https://central.sonatype.org/publish/requirements/immutability/#alternatives-to-removal-or-modification-of-components)
    和 [# Can I change, modify, delete, remove, or update a component on Central?](https://central.sonatype.org/faq/can-i-change-a-component/)
 
-这篇文章只是一个基础教程, 接下来我将对 `pom.xml` 进行更高阶的配置, 以满足企业 Maven 私服部署, 以及使用 `.mvn` 来避免本地 Maven 版本不适配的等问题.
+这篇文章只是一个基础教程, 接下来笔者将对 `pom.xml` 进行更高阶的配置, 以满足企业 Maven 私服部署, 以及使用 `.mvn` 来避免本地 Maven 版本不适配的等问题.
 
 ## 📚 参考
 

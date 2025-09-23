@@ -721,7 +721,7 @@ build.time=2025-08-31T10:15:30Z
 
 由于框架没有使用 `spring-boot-maven-plugin`(选择了更灵活的 `maven-assembly-plugin`),就失去了这个有用的功能。
 
-但我个人认为 `build-info.properties` 是一个很有价值的内省文件,特别是在微服务架构中,每个服务都能报告自己的版本信息是非常重要的运维能力。
+但笔者认为 `build-info.properties` 是一个很有价值的内省文件,特别是在微服务架构中,每个服务都能报告自己的版本信息是非常重要的运维能力。
 
 所以决定复刻这个功能,也就有了 `GenerateProjectBuildInfoMojo`。
 
