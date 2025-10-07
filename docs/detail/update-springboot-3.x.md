@@ -60,7 +60,7 @@
     <p3c-pmd.version>2.1.1</p3c-pmd.version>
     
     <!-- 更新插件版本 -->
-    <maven-checkstyle-plugin.version>3.2.2</maven-checkstyle-plugin.version>
+    <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
     <maven-pmd-plugin.version>3.21.0</maven-pmd-plugin.version>
     <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
     <maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
