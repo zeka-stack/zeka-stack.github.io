@@ -17,7 +17,7 @@
     * [blen-kernel-autoconfigure](component/blen/blen-kernel-autoconfigure)
     * [blen-kernel-common](component/blen/blen-kernel-common)
     * [blen-kernel-dependencies](component/blen/blen-kernel-dependencies)
-    * [blen-kernel-devtools](component/blen/blen-kernel-devtools)
+  * [blen-kernel-generator](component/blen/blen-kernel-generator)
     * [blen-kernel-extend](component/blen/blen-kernel-extend)
     * [blen-kernel-notify](component/blen/blen-kernel-notify)
     * [blen-kernel-spi](component/blen/blen-kernel-spi)

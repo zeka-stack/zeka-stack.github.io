@@ -2,7 +2,7 @@
 
 ## 概述
 
-`blen-kernel-devtools` 是 Zeka.Stack 框架的开发工具模块，基于 MyBatis-Plus Generator 提供了强大的代码生成功能。该模块可以帮助开发者快速生成标准的
+`blen-kernel-generator` 是 Zeka.Stack 框架的开发工具模块，基于 MyBatis-Plus Generator 提供了强大的代码生成功能。该模块可以帮助开发者快速生成标准的
 CRUD 代码，包括实体类、Mapper、Service、Controller 等，大大提升开发效率。
 
 ## 主要功能
@@ -98,7 +98,7 @@ CRUD 代码，包括实体类、Mapper、Service、Controller 等，大大提升
 ```xml
 <dependency>
     <groupId>dev.dong4j</groupId>
-    <artifactId>blen-kernel-devtools</artifactId>
+    <artifactId>blen-kernel-generator</artifactId>
     <version>${blen-kernel.version}</version>
     <scope>test</scope>
 </dependency>

@@ -78,7 +78,7 @@ class DocsSync:
             "blen-kernel/blen-kernel-autoconfigure": "component/blen/blen-kernel-autoconfigure.md",
             "blen-kernel/blen-kernel-common": "component/blen/blen-kernel-common.md",
             "blen-kernel/blen-kernel-dependencies": "component/blen/blen-kernel-dependencies.md",
-            "blen-kernel/blen-kernel-devtools": "component/blen/blen-kernel-devtools.md",
+            "blen-kernel/blen-kernel-generator": "component/blen/blen-kernel-generator.md",
             "blen-kernel/blen-kernel-extend": "component/blen/blen-kernel-extend.md",
             "blen-kernel/blen-kernel-notify": "component/blen/blen-kernel-notify.md",
             "blen-kernel/blen-kernel-spi": "component/blen/blen-kernel-spi.md",
