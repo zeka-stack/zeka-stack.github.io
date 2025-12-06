@@ -81,6 +81,42 @@ has_pom_subdirs() {
     return 1
 }
 
+# 函数：获取当前日期（格式：yyyy.mm.dd）
+get_current_date() {
+    date +"%Y.%m.%d"
+}
+
+# 函数：检查文件是否有 frontmatter
+has_frontmatter() {
+    local file="$1"
+    # 检查文件是否以 --- 开头（frontmatter 开始标记）
+    [[ -f "${file}" ]] && head -n 1 "${file}" 2>/dev/null | grep -q "^---$"
+}
+
+# 函数：为文件添加 frontmatter（如果不存在）
+add_frontmatter_if_needed() {
+    local file="$1"
+    
+    if ! has_frontmatter "${file}"; then
+        local current_date
+        current_date=$(get_current_date)
+        local temp_file
+        temp_file=$(mktemp)
+        
+        # 添加 frontmatter
+        {
+            echo "---"
+            echo "published: ${current_date}"
+            echo "---"
+            echo ""
+            cat "${file}"
+        } > "${temp_file}"
+        
+        mv "${temp_file}" "${file}"
+        echo -e "  ${BLUE}→${NC} 已添加 frontmatter (published: ${current_date})"
+    fi
+}
+
 # 函数：同步 README.md 并添加代码链接
 sync_readme() {
     local source_file="$1"
@@ -89,6 +125,9 @@ sync_readme() {
 
     # 复制文件
     cp "${source_file}" "${target_file}"
+    
+    # 检查并添加 frontmatter（如果不存在）
+    add_frontmatter_if_needed "${target_file}"
 
     # 生成 GitHub 代码链接
     local github_url="https://github.com/dong4j/zeka.stack/tree/main/${relative_path}"
@@ -142,6 +181,10 @@ sync_docs_files() {
         
         # 复制文件
         cp "${doc_file}" "${target_file}"
+        
+        # 检查并添加 frontmatter（如果不存在）
+        add_frontmatter_if_needed "${target_file}"
+        
         echo -e "  ${BLUE}→${NC} 已同步 docs/${rel_doc_path} -> docs/${relative_path}/${rel_doc_path}"
     done < <(find "${source_docs_dir}" -type f -name "*.md" -print0 2>/dev/null)
 }

@@ -79,7 +79,7 @@ cd "${SCRIPT_DIR}"
 # 检查 node_modules 是否存在
 if [ ! -d "node_modules" ]; then
   echo -e "${YELLOW}正在安装依赖...${NC}"
-  npm install
+  pnpm install
   if [ $? -ne 0 ]; then
     echo -e "${RED}依赖安装失败${NC}"
     exit 1
@@ -87,7 +87,7 @@ if [ ! -d "node_modules" ]; then
 fi
 
 # 执行构建
-npm run build
+pnpm run build
 
 if [ $? -ne 0 ]; then
   echo -e "${RED}文档构建失败${NC}"
@@ -136,9 +136,10 @@ echo ""
 echo -e "${YELLOW}部署信息:${NC}"
 echo -e "  - 服务器: ${BLUE}${SERVER_ALIAS}${NC}"
 echo -e "  - 目录: ${BLUE}${REMOTE_DIR}${NC}"
+echo -e "  - 站点: ${BLUE}https://zeka-stack.dong4j.site${NC}"
 echo ""
 echo -e "${YELLOW}本地命令:${NC}"
-echo -e "  - 运行 ${BLUE}npm run dev${NC} 启动开发服务器"
-echo -e "  - 运行 ${BLUE}npm run build${NC} 构建文档"
-echo -e "  - 运行 ${BLUE}npm run preview${NC} 预览构建结果"
+echo -e "  - 运行 ${BLUE}pnpm run dev${NC} 启动开发服务器"
+echo -e "  - 运行 ${BLUE}pnpm run build${NC} 构建文档"
+echo -e "  - 运行 ${BLUE}pnpm run preview${NC} 预览构建结果"
 echo ""

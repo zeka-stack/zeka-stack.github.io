@@ -144,8 +144,7 @@ function findModules(dir, basePath = '', skipDirs = []) {
                         moduleInfo.items.push(...docItems)
                     }
                     // 如果有子项，添加折叠功能
-                    moduleInfo.collapsible = true
-                    moduleInfo.collapsed = false
+                    moduleInfo.collapsed = true
                 }
 
                 modules.push(moduleInfo)
@@ -310,8 +309,7 @@ function addDirectoryMenu(sidebar, menuText, dirName) {
         sidebar['/'].push({
                               text: menuText,
                               items: items,
-                              collapsible: true,
-                              collapsed: false
+                              collapsed: true
                           })
     }
 }
@@ -367,8 +365,7 @@ function generateSidebar() {
             sidebar['/'].push({
                                   text: categoryName,
                                   items: items,
-                                  collapsible: true,
-                                  collapsed: false
+                                  collapsed: true
                               })
         }
     }
@@ -524,7 +521,7 @@ export default defineConfig(
                 text: '最后更新于',
                 formatOptions: {
                     forceLocale: true, // 保持默认 locale 处理（可选）
-                    dateStyle: 'short',
+                    dateStyle: 'full',
                     timeStyle: 'medium'
                 },
                 transform: (timestamp) => {

@@ -147,9 +147,10 @@ a.VPButton[href*="guide"]:hover,
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* 自定义滚动条 */
+/* 自定义滚动条 - 全局设置 */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -158,11 +159,63 @@ a.VPButton[href*="guide"]:hover,
 
 ::-webkit-scrollbar-thumb {
     background: var(--vp-c-divider);
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--vp-c-brand);
+}
+
+/* 左侧边栏滚动条 - 只在需要时显示 */
+.VPSidebar {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.VPSidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.VPSidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.VPSidebar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 3px;
+}
+
+/* 鼠标悬停时显示滚动条 */
+.VPSidebar:hover::-webkit-scrollbar-thumb {
+    background: var(--vp-c-divider);
+}
+
+.VPSidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--vp-c-brand);
+}
+
+/* 侧边栏内容区域 */
+.VPSidebar .items {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* 导航菜单滚动条 */
+.VPNav {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.VPNav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.VPNav::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.VPNav:hover::-webkit-scrollbar-thumb {
+    background: var(--vp-c-divider);
 }
 
 /* 代码块增强 */

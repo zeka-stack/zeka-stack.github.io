@@ -61,9 +61,9 @@ export const Theme = {
         // giscus配置
         giscusTalk({
                        repo: 'zeka-stack/zeka-stack.github.io', //仓库
-                       repoId: 'R_kgDOQbLo3g', //仓库ID（需要在新仓库启用 giscus 后更新）
+                       repoId: 'R_kgDOO3urdw', //仓库ID（需要在新仓库启用 giscus 后更新）
                        category: 'General', // 讨论分类
-                       categoryId: 'DIC_kwDOQbLo3s4CyHoV', //讨论分类ID（需要在新仓库启用 giscus 后更新）
+                       categoryId: 'DIC_kwDOO3urd84CzeOU', //讨论分类ID（需要在新仓库启用 giscus 后更新）
                        mapping: 'pathname',
                        inputPosition: 'bottom',
                        lang: 'zh-CN',
