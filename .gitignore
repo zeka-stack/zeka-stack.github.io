@@ -77,3 +77,9 @@ rebel.xml
 
 .vitepress/dist
 .vitepress/cache
+
+arco-meta/
+blen-kernel/
+cubo-starter/
+cubo-starter-examples/
+node_modules/

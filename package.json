@@ -1,0 +1,33 @@
+{
+  "name": "zeka-stack-docs",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "Zeka Stack Documentation - 现代化的 Java 微服务工程体系",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "sync": "bash sync-docs.sh",
+    "clean": "rm -rf [0-9]* .vitepress/cache .vitepress/dist"
+  },
+  "devDependencies": {
+    "@nolebase/markdown-it-bi-directional-links": "^2.18.2",
+    "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.2",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",
+    "@nolebase/vitepress-plugin-git-changelog": "^2.18.2",
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.2",
+    "@nolebase/vitepress-plugin-index": "^2.18.2",
+    "@nolebase/vitepress-plugin-inline-link-preview": "^2.18.2",
+    "dayjs": "^1.11.19",
+    "medium-zoom": "^1.1.0",
+    "nprogress-v2": "^1.1.10",
+    "vitepress": "^1.6.3",
+    "vitepress-markdown-timeline": "^1.2.2",
+    "vitepress-plugin-codeblocks-fold": "^1.2.35",
+    "vitepress-plugin-group-icons": "^1.6.5",
+    "vitepress-plugin-legend": "^1.1.0"
+  },
+  "dependencies": {
+    "vitepress-plugin-comment-with-giscus": "^1.1.15"
+  }
+}

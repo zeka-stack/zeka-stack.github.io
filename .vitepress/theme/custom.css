@@ -1,0 +1,198 @@
+/**
+ * 自定义样式
+ */
+
+:root {
+    --vp-c-brand: #6DB33F;
+    --vp-c-brand-light: #7dc351;
+    --vp-c-brand-lighter: #8ed363;
+    --vp-c-brand-dark: #5d9d35;
+    --vp-c-brand-darker: #4d8529;
+
+    /* 渐变背景 */
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(120deg, #646cff 30%, #747bff);
+
+    /* 动画 */
+    --vp-home-hero-image-filter: drop-shadow(0 12px 40px rgba(100, 108, 255, 0.2));
+}
+
+/* .vitepress/theme/style/var.css */
+.VPDoc h1 {
+    background: -webkit-linear-gradient(10deg, #bd34fe 5%, #e43498 15%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.medium-zoom-overlay {
+    background-color: var(--vp-c-bg) !important;
+    z-index: 100;
+}
+
+.medium-zoom-overlay ~ img {
+    z-index: 101;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+    opacity: 0.9 !important;
+}
+
+/* 右侧大纲容器宽度 */
+.aside-container {
+    width: 400px !important;
+}
+
+/* Hero 区域动画 */
+.VPHero .name {
+    background: linear-gradient(120deg, #646cff 30%, #747bff, #9499ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3.5rem;
+    font-weight: 700;
+    animation: gradient-shift 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Hero 图片动画 */
+.VPHero .image {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* 按钮悬停效果 - 已禁用 */
+.VPHero .action {
+    transition: none;
+}
+
+.VPHero .action:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* GitHub 按钮绿色样式 */
+.VPHero .action[href*="github"] {
+    background: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.VPHero .action[href*="github"]:hover {
+    background: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+/* 快速开始按钮绿色样式 - 使用更高优先级的选择器 */
+.VPHero .actions a[href="/guide/"],
+.VPHero .actions a[href*="guide"],
+.VPHero .action[href="/guide/"],
+.VPHero .action[href*="guide"],
+.VPHero .actions .action.alt[href*="guide"],
+a.VPButton.alt[href*="guide"],
+a.VPButton[href*="guide"],
+.VPHero a[href*="guide"] {
+    background: #6DB33F !important;
+    background-color: #6DB33F !important;
+    border-color: #6DB33F !important;
+    border: 1px solid #6DB33F !important;
+    color: #fff !important;
+}
+
+.VPHero .actions a[href="/guide/"]:hover,
+.VPHero .actions a[href*="guide"]:hover,
+.VPHero .action[href="/guide/"]:hover,
+.VPHero .action[href*="guide"]:hover,
+.VPHero .actions .action.alt[href*="guide"]:hover,
+a.VPButton.alt[href*="guide"]:hover,
+a.VPButton[href*="guide"]:hover,
+.VPHero a[href*="guide"]:hover {
+    background: #5d9d35 !important;
+    background-color: #5d9d35 !important;
+    border-color: #5d9d35 !important;
+    border: 1px solid #5d9d35 !important;
+    color: #fff !important;
+}
+
+/* Features 卡片动画 */
+.VPFeature {
+    transition: all 0.3s ease;
+}
+
+.VPFeature:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--vp-c-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--vp-c-divider);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--vp-c-brand);
+}
+
+/* 代码块增强 */
+.vp-code-group {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 链接动画 */
+a {
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--vp-c-brand);
+}
+
+/* 隐藏 VitePress 默认 footer */
+.VPFooter {
+    display: none !important;
+}
+
+/* 调整 content 的底部 padding */
+.content {
+    padding-bottom: 32px !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .VPHero .name {
+        font-size: 2.5rem;
+    }
+}
