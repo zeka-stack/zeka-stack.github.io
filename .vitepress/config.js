@@ -9,6 +9,8 @@ import {BiDirectionalLinks} from '@nolebase/markdown-it-bi-directional-links'
 import timeline from "vitepress-markdown-timeline";
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
 import {vitepressPluginLegend} from 'vitepress-plugin-legend'
+import llmstxt from 'vitepress-plugin-llms'
+import {copyOrDownloadAsMarkdownButtons} from 'vitepress-plugin-llms'
 import {EXTERNAL_SERVICES, GITHUB_CONFIG} from './theme/config/constants.ts'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -403,6 +405,17 @@ export default defineConfig(
                         repoURL: () => GITHUB_CONFIG.url,
                     }),
                 GitChangelogMarkdownSection(),
+                // 生成 LLM 友好的文档
+                llmstxt({
+                            title: 'Zeka Stack',
+                            ignoreFiles: [
+                                'node_modules/**',
+                                '.vitepress/**',
+                                'public/**',
+                                'templates/**',
+                                '.git/**'
+                            ]
+                        }),
             ],
             optimizeDeps: {
                 exclude: [
@@ -469,6 +482,7 @@ export default defineConfig(
                 md.use(InlineLinkPreviewElementTransform)
                 md.use(BiDirectionalLinks())
                 md.use(timeline)
+                md.use(copyOrDownloadAsMarkdownButtons)
                 md.use(groupIconMdPlugin, {
                     titleBar: {includeSnippet: true},
                 })
