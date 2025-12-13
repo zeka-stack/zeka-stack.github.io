@@ -1,17 +1,18 @@
-import {defineConfig} from 'vitepress'
+import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path'
-import {fileURLToPath} from 'url'
+import { fileURLToPath } from 'url'
 import dayjs from 'dayjs'
-import {InlineLinkPreviewElementTransform} from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
-import {GitChangelog, GitChangelogMarkdownSection,} from '@nolebase/vitepress-plugin-git-changelog/vite'
-import {BiDirectionalLinks} from '@nolebase/markdown-it-bi-directional-links'
+import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
+import { GitChangelog, GitChangelogMarkdownSection, } from '@nolebase/vitepress-plugin-git-changelog/vite'
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import timeline from "vitepress-markdown-timeline";
-import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons'
-import {vitepressPluginLegend} from 'vitepress-plugin-legend'
+import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import { vitepressPluginLegend } from 'vitepress-plugin-legend'
 import llmstxt from 'vitepress-plugin-llms'
-import {copyOrDownloadAsMarkdownButtons} from 'vitepress-plugin-llms'
-import {EXTERNAL_SERVICES, GITHUB_CONFIG} from './theme/config/constants.ts'
+import { copyOrDownloadAsMarkdownButtons } from 'vitepress-plugin-llms'
+import { EXTERNAL_SERVICES, GITHUB_CONFIG } from './theme/config/constants.ts'
+import difyPlugin from 'vitepress-plugin-dify';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -44,7 +45,7 @@ function getModuleDocItems(modulePath, relativePath) {
         return items
     }
 
-    const files = fs.readdirSync(modulePath, {withFileTypes: true})
+    const files = fs.readdirSync(modulePath, { withFileTypes: true })
     for (const file of files) {
         if (!file.isFile() || !file.name.endsWith('.md') || file.name === 'index.md') {
             continue
@@ -66,10 +67,10 @@ function getModuleDocItems(modulePath, relativePath) {
         }
 
         items.push({
-                       text: title,
-                       link: link,
-                       sortKey: sortKey
-                   })
+            text: title,
+            link: link,
+            sortKey: sortKey
+        })
     }
 
     // 按 sortKey 排序，如果相同则按文件名排序
@@ -100,7 +101,7 @@ function findModules(dir, basePath = '', skipDirs = []) {
         return modules
     }
 
-    const items = fs.readdirSync(dir, {withFileTypes: true})
+    const items = fs.readdirSync(dir, { withFileTypes: true })
 
     for (const item of items) {
         // 跳过隐藏文件和特殊目录
@@ -248,7 +249,7 @@ function getDirectoryItems(dirName) {
     }
 
     // 读取目录下的所有文件
-    const files = fs.readdirSync(dirPath, {withFileTypes: true})
+    const files = fs.readdirSync(dirPath, { withFileTypes: true })
 
     for (const file of files) {
         // 只处理 .md 文件
@@ -282,10 +283,10 @@ function getDirectoryItems(dirName) {
         const title = getDocumentTitle(filePath)
         if (title) {
             items.push({
-                           text: title,
-                           link: link,
-                           sortKey: sortKey
-                       })
+                text: title,
+                link: link,
+                sortKey: sortKey
+            })
         }
     }
 
@@ -309,10 +310,10 @@ function addDirectoryMenu(sidebar, menuText, dirName) {
     const items = getDirectoryItems(dirName)
     if (items.length > 0) {
         sidebar['/'].push({
-                              text: menuText,
-                              items: items,
-                              collapsed: true
-                          })
+            text: menuText,
+            items: items,
+            collapsed: true
+        })
     }
 }
 
@@ -352,9 +353,9 @@ function generateSidebar() {
         if (fs.existsSync(topLevelIndexPath)) {
             const displayName = getModuleDisplayName(targetDir)
             items.push({
-                           text: displayName,
-                           link: `/${dirName}/`
-                       })
+                text: displayName,
+                link: `/${dirName}/`
+            })
         }
 
         // 添加子模块
@@ -365,10 +366,10 @@ function generateSidebar() {
         // 如果有内容（顶级 index.md 或子模块），则添加到侧边栏
         if (items.length > 0) {
             sidebar['/'].push({
-                                  text: categoryName,
-                                  items: items,
-                                  collapsed: true
-                              })
+                text: categoryName,
+                items: items,
+                collapsed: true
+            })
         }
     }
 
@@ -407,15 +408,37 @@ export default defineConfig(
                 GitChangelogMarkdownSection(),
                 // 生成 LLM 友好的文档
                 llmstxt({
-                            title: 'Zeka Stack',
-                            ignoreFiles: [
-                                'node_modules/**',
-                                '.vitepress/**',
-                                'public/**',
-                                'templates/**',
-                                '.git/**'
-                            ]
-                        }),
+                    title: 'Zeka Stack',
+                    ignoreFiles: [
+                        'node_modules/**',
+                        '.vitepress/**',
+                        'public/**',
+                        'templates/**',
+                        '.git/**'
+                    ]
+                }),
+                difyPlugin({
+                    enable: true,                    // 是否启用插件
+                    token: 'PKh5RI7fbi9DhXOt',        // Dify 应用令牌（必需）
+                    mode: 'bubble',                 // 嵌入模式：'bubble' 或 'iframe'
+                    baseUrl: 'https://dify.dong4j.site',   // Dify 服务地址（可选，默认 https://udify.app）
+                    isDev: false,                     // 是否为开发环境（可选）
+                    bubble: {
+                        draggable: true,
+                        dragAxis: 'both',
+                        containerProps: {
+                          style: {
+                            right: '30px',
+                            bottom: '30px',
+                            backgroundColor: '#3e86f6',
+                            width: '60px',
+                            height: '60px',
+                            borderRadius: '30px',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                          }
+                        }
+                    }
+                }),
             ],
             optimizeDeps: {
                 exclude: [
@@ -452,7 +475,7 @@ export default defineConfig(
         ],
 
         head: [
-            ['link', {rel: 'icon', href: '/favicon.ico'}],
+            ['link', { rel: 'icon', href: '/favicon.ico' }],
             ['script', {
                 src: EXTERNAL_SERVICES.busuanzi.scriptUrl,
                 async: true,
@@ -484,10 +507,10 @@ export default defineConfig(
                 md.use(timeline)
                 md.use(copyOrDownloadAsMarkdownButtons)
                 md.use(groupIconMdPlugin, {
-                    titleBar: {includeSnippet: true},
+                    titleBar: { includeSnippet: true },
                 })
                 vitepressPluginLegend(md, {
-                    markmap: {showToolbar: true}, // 显示脑图工具栏
+                    markmap: { showToolbar: true }, // 显示脑图工具栏
                     mermaid: true // 启用 Mermaid
                 })
                 md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
@@ -505,16 +528,16 @@ export default defineConfig(
             logo: '/logo.png',
 
             nav: [
-                {text: '🏠 首页', link: '/'},
-                {text: '🚀 开始', link: '/guide/'},
-                {text: '📝 更新日志', link: '/changelog'},
-                {text: '📊 统计', link: 'https://umami.dong4j.site/share/o0wIhLdP1EwFcdCt/zeka-stack.dong4j.site', target: '_blank'}
+                { text: '🏠 首页', link: '/' },
+                { text: '🚀 开始', link: '/guide/' },
+                { text: '📝 更新日志', link: '/changelog' },
+                { text: '📊 统计', link: 'https://umami.dong4j.site/share/o0wIhLdP1EwFcdCt/zeka-stack.dong4j.site', target: '_blank' }
             ],
 
             sidebar: generateSidebar(),
 
             socialLinks: [
-                {icon: 'github', link: GITHUB_CONFIG.url}
+                { icon: 'github', link: GITHUB_CONFIG.url }
             ],
 
             footer: {

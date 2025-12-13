@@ -26,7 +26,8 @@
     "vitepress-plugin-codeblocks-fold": "^1.2.35",
     "vitepress-plugin-group-icons": "^1.6.5",
     "vitepress-plugin-legend": "^1.1.0",
-    "vitepress-plugin-llms": "^1.9.3"
+    "vitepress-plugin-llms": "^1.9.3",
+    "vitepress-plugin-dify": "file:../vitepress-plugin-dify"
   },
   "dependencies": {
     "vitepress-plugin-comment-with-giscus": "^1.1.15"
