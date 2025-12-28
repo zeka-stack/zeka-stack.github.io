@@ -43,42 +43,60 @@ features:
 
 <div class="home-content">
 
-## 🎯 项目概览
-
-Zeka Stack 是一个现代化的 Java 微服务工程体系，提供开箱即用的企业级开发框架，帮助开发者快速构建高质量的微服务应用。
-
-<div class="stats-grid">
-  <div class="stat-card">
-    <div class="stat-number">20+</div>
-    <div class="stat-label">核心模块</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">100+</div>
-    <div class="stat-label">代码示例</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-number">∞</div>
-    <div class="stat-label">无限可能</div>
-  </div>
+<div class="signal-bar">
+  <span>⚡ Zeka Stack</span>
+  <span>Spring Boot 3.x</span>
+  <span>JDK 17+</span>
+  <span>AI Ready</span>
+  <span>Best Practices</span>
+  <span>TDD</span>
 </div>
+
+<section class="overview-section">
+  <div class="overview-header">
+    <h2>🎯 项目概览</h2>
+    <p>Zeka Stack 是一个现代化的 Java 微服务工程体系，提供开箱即用的企业级开发框架，帮助开发者快速构建高质量的微服务应用。</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">核心模块</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">100+</div>
+      <div class="stat-label">代码示例</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">无限可能</div>
+    </div>
+  </div>
+</section>
 
 ## 📚 模块体系
 
-### 🟢 Arco Meta
-
-- **元数据管理** - 提供统一的元数据定义和管理能力
-
-### 🔵 Blen Kernel
-
-- **内核组件** - 核心基础组件，包含认证、授权等通用能力
-
-### 🟡 Cubo Starter
-
-- **快速启动器** - 开箱即用的 Spring Boot Starter 集合
-
-### 🟣 Cubo Examples
-
-- **示例工程** - 完整的使用示例和最佳实践
+<div class="module-grid">
+  <div class="module-card">
+    <div class="module-badge module-arco">Arco Meta</div>
+    <h3>构建与依赖基座</h3>
+    <p>父 POM、依赖管理与构建插件体系，统一工程规范与质量门槛。</p>
+  </div>
+  <div class="module-card">
+    <div class="module-badge module-blen">Blen Kernel</div>
+    <h3>基础能力内核</h3>
+    <p>认证、校验、追踪与测试支持，覆盖企业级基础能力。</p>
+  </div>
+  <div class="module-card">
+    <div class="module-badge module-cubo">Cubo Starter</div>
+    <h3>标准化启动器</h3>
+    <p>按需组合的 Starter 集合，确保项目起步即规范。</p>
+  </div>
+  <div class="module-card">
+    <div class="module-badge module-examples">Cubo Examples</div>
+    <h3>示例与最佳实践</h3>
+    <p>可运行示例与工程模板，帮助快速验证与落地。</p>
+  </div>
+</div>
 
 ## 🛠️ 技术栈
 
@@ -94,6 +112,21 @@ Zeka Stack 是一个现代化的 Java 微服务工程体系，提供开箱即用
   <div class="tech-item">
     <strong>Java</strong>
     <span>17+</span>
+  </div>
+</div>
+
+<div class="workflow-strip">
+  <div>
+    <strong>统一构建</strong>
+    <span>多层 parent + 插件体系</span>
+  </div>
+  <div>
+    <strong>标准能力</strong>
+    <span>统一异常、日志、监控</span>
+  </div>
+  <div>
+    <strong>可演进架构</strong>
+    <span>单体与微服务双模式</span>
   </div>
 </div>
 
@@ -160,22 +193,79 @@ mvn clean install
 </div>
 
 <style>
+:root {
+  --zeka-ink: #0f172a;
+  --zeka-mist: #f8f4ef;
+  --zeka-accent: #f28c28;
+  --zeka-teal: #0b7285;
+  --zeka-olive: #2b8a3e;
+  --zeka-sand: #f2e9e1;
+  --zeka-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
 .home-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  font-family: "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  position: relative;
+  isolation: isolate;
+}
+
+.signal-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  background: var(--zeka-sand);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--zeka-ink);
+  margin: 0.5rem 0 2rem;
+  box-shadow: var(--zeka-shadow);
+}
+
+.signal-bar span {
+  background: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  letter-spacing: 0.2px;
+}
+
+.overview-section {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 244, 239, 0.9));
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: var(--zeka-shadow);
+  margin: 1.5rem 0 2.5rem;
+}
+
+.overview-header h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.6rem;
+  color: var(--zeka-ink);
+}
+
+.overview-header p {
+  margin: 0;
+  color: rgba(15, 23, 42, 0.72);
+  max-width: 720px;
+  line-height: 1.7;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
 }
 
 .stat-card {
-  background: linear-gradient(135deg, var(--vp-c-bg-soft) 0%, var(--vp-c-bg) 100%);
-  border: 1px solid var(--vp-c-divider);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(242, 233, 225, 0.8) 100%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 12px;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -186,19 +276,20 @@ mvn clean install
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: floatUp 0.6s ease both;
 }
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border-color: var(--vp-c-brand);
+  box-shadow: var(--zeka-shadow);
+  border-color: var(--zeka-teal);
 }
 
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.3;
-  background: linear-gradient(135deg, var(--vp-c-brand) 0%, var(--vp-c-brand-light) 100%);
+  background: linear-gradient(135deg, var(--zeka-teal) 0%, var(--zeka-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -210,10 +301,78 @@ mvn clean install
 }
 
 .stat-label {
-  color: var(--vp-c-text-2);
+  color: rgba(15, 23, 42, 0.7);
   font-size: 0.9rem;
   line-height: 1.5;
   margin-top: 0.5rem;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.module-card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: var(--zeka-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.16);
+}
+
+.module-card h3 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.15rem;
+  color: var(--zeka-ink);
+}
+
+.module-card p {
+  margin: 0;
+  color: rgba(15, 23, 42, 0.68);
+  line-height: 1.6;
+}
+
+.module-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
+  border: 1px solid transparent;
+}
+
+.module-arco {
+  background: rgba(11, 114, 133, 0.12);
+  color: var(--zeka-teal);
+  border-color: rgba(11, 114, 133, 0.3);
+}
+
+.module-blen {
+  background: rgba(43, 138, 62, 0.12);
+  color: var(--zeka-olive);
+  border-color: rgba(43, 138, 62, 0.3);
+}
+
+.module-cubo {
+  background: rgba(242, 140, 40, 0.15);
+  color: #c96a0e;
+  border-color: rgba(242, 140, 40, 0.4);
+}
+
+.module-examples {
+  background: rgba(15, 23, 42, 0.08);
+  color: #1f2937;
+  border-color: rgba(15, 23, 42, 0.18);
 }
 
 .tech-stack {
@@ -224,8 +383,8 @@ mvn clean install
 }
 
 .tech-item {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 8px;
   padding: 1rem 1.5rem;
   display: flex;
@@ -235,17 +394,39 @@ mvn clean install
 }
 
 .tech-item:hover {
-  border-color: var(--vp-c-brand);
+  border-color: var(--zeka-accent);
   transform: translateY(-2px);
 }
 
 .tech-item strong {
-  color: var(--vp-c-text-1);
+  color: var(--zeka-ink);
   font-size: 1rem;
 }
 
 .tech-item span {
-  color: var(--vp-c-text-2);
+  color: rgba(15, 23, 42, 0.7);
+  font-size: 0.85rem;
+}
+
+.workflow-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(11, 114, 133, 0.08);
+  border: 1px solid rgba(11, 114, 133, 0.2);
+  border-radius: 16px;
+  margin: 2rem 0;
+}
+
+.workflow-strip strong {
+  display: block;
+  color: var(--zeka-ink);
+  font-size: 1rem;
+}
+
+.workflow-strip span {
+  color: rgba(15, 23, 42, 0.7);
   font-size: 0.85rem;
 }
 
@@ -257,8 +438,8 @@ mvn clean install
 }
 
 .resource-card {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 12px;
   padding: 1.5rem;
   text-decoration: none;
@@ -271,8 +452,8 @@ mvn clean install
 
 .resource-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border-color: var(--vp-c-brand);
+  box-shadow: var(--zeka-shadow);
+  border-color: var(--zeka-teal);
   text-decoration: none;
 }
 
@@ -284,12 +465,12 @@ mvn clean install
 .resource-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--vp-c-text-1);
+  color: var(--zeka-ink);
 }
 
 .resource-desc {
   font-size: 0.9rem;
-  color: var(--vp-c-text-2);
+  color: rgba(15, 23, 42, 0.7);
   line-height: 1.5;
 }
 
@@ -301,8 +482,8 @@ mvn clean install
 }
 
 .author-section {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 12px;
   padding: 1.5rem;
 }
@@ -310,7 +491,7 @@ mvn clean install
 .author-section h3 {
   margin: 0 0 1rem 0;
   font-size: 1.2rem;
-  color: var(--vp-c-text-1);
+  color: var(--zeka-ink);
   font-weight: 600;
 }
 
@@ -325,15 +506,26 @@ mvn clean install
 }
 
 .author-section a {
-  color: var(--vp-c-brand);
+  color: var(--zeka-teal);
   text-decoration: none;
   transition: color 0.2s ease;
   display: inline-block;
 }
 
 .author-section a:hover {
-  color: var(--vp-c-brand-light);
+  color: var(--zeka-accent);
   text-decoration: underline;
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
@@ -347,6 +539,14 @@ mvn clean install
 
   .author-links {
     grid-template-columns: 1fr;
+  }
+
+  .signal-bar {
+    border-radius: 18px;
+  }
+
+  .overview-section {
+    padding: 1.5rem;
   }
 }
 </style>
