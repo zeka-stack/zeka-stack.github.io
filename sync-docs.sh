@@ -49,11 +49,11 @@ has_pom_xml() {
 has_docs_with_md() {
     local check_dir="$1"
     local docs_dir="${check_dir}/docs"
-    
+
     if [[ ! -d "${docs_dir}" ]]; then
         return 1
     fi
-    
+
     # 递归查找 docs 目录下的所有 md 文件
     local md_count
     md_count=$(find "${docs_dir}" -type f -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
@@ -63,17 +63,17 @@ has_docs_with_md() {
 # 函数：检查目录是否有包含 pom.xml 的子目录
 has_pom_subdirs() {
     local check_dir="$1"
-    
+
     for subdir in "${check_dir}"/*; do
         [[ ! -d "${subdir}" ]] && continue
         local subdir_name
         subdir_name=$(basename "${subdir}")
-        
+
         # 跳过特殊目录
         case "${subdir_name}" in
             docs|imgs|src|target|node_modules|.git|templates|.mvn|.idea|.vscode|assembly|bin|db|.*) continue ;;
         esac
-        
+
         if has_pom_xml "${subdir}"; then
             return 0
         fi
@@ -96,13 +96,13 @@ has_frontmatter() {
 # 函数：为文件添加 frontmatter（如果不存在）
 add_frontmatter_if_needed() {
     local file="$1"
-    
+
     if ! has_frontmatter "${file}"; then
         local current_date
         current_date=$(get_current_date)
         local temp_file
         temp_file=$(mktemp)
-        
+
         # 添加 frontmatter
         {
             echo "---"
@@ -111,10 +111,67 @@ add_frontmatter_if_needed() {
             echo ""
             cat "${file}"
         } > "${temp_file}"
-        
+
         mv "${temp_file}" "${file}"
         echo -e "  ${BLUE}→${NC} 已添加 frontmatter (published: ${current_date})"
     fi
+}
+
+# 函数：检查文件是否已包含徽标
+has_badges() {
+    local file="$1"
+    grep -q "Zeka%20Stack-core" "${file}" 2>/dev/null
+}
+
+# 函数：为文件添加徽标（如果不存在）
+add_badges_if_needed() {
+    local file="$1"
+
+    if has_badges "${file}"; then
+        return
+    fi
+
+    local badges_file
+    badges_file=$(mktemp)
+    cat <<'EOF' > "${badges_file}"
+<div style="text-align: center;">
+
+![Zeka Stack](https://img.shields.io/badge/Zeka%20Stack-core-0B7285?style=flat-square) ![Spring Boot 3.x](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?style=flat-square&logo=spring) ![JDK17+](https://img.shields.io/badge/JDK-17%2B-007396?style=flat-square&logo=java) ![AI](https://img.shields.io/badge/AI-enabled-FF6B6B?style=flat-square) ![最佳实践](https://img.shields.io/badge/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-guided-845EC2?style=flat-square) ![测试驱动](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8-TDD-1F7A8C?style=flat-square) ![TDD](https://img.shields.io/badge/TDD-focused-3D5A80?style=flat-square) ![单体架构](https://img.shields.io/badge/%E5%8D%95%E4%BD%93%E6%9E%B6%E6%9E%84-supported-5C7AEA?style=flat-square) ![微服务架构](https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square)
+</div>
+EOF
+
+    local temp_file
+    temp_file=$(mktemp)
+
+    if has_frontmatter "${file}"; then
+        local fm_end_line
+        fm_end_line=$(grep -n "^---$" "${file}" 2>/dev/null | sed -n '2p' | cut -d: -f1)
+        if [[ -n "${fm_end_line}" ]]; then
+            {
+                sed -n "1,${fm_end_line}p" "${file}"
+                echo ""
+                cat "${badges_file}"
+                echo ""
+                sed -n "$((fm_end_line + 1)),\$p" "${file}"
+            } > "${temp_file}"
+        else
+            {
+                cat "${badges_file}"
+                echo ""
+                cat "${file}"
+            } > "${temp_file}"
+        fi
+    else
+        {
+            cat "${badges_file}"
+            echo ""
+            cat "${file}"
+        } > "${temp_file}"
+    fi
+
+    mv "${temp_file}" "${file}"
+    rm -f "${badges_file}"
+    echo -e "  ${BLUE}→${NC} 已添加徽标"
 }
 
 # 函数：同步 README.md 并添加代码链接
@@ -125,9 +182,11 @@ sync_readme() {
 
     # 复制文件
     cp "${source_file}" "${target_file}"
-    
+
     # 检查并添加 frontmatter（如果不存在）
     add_frontmatter_if_needed "${target_file}"
+    # 检查并添加徽标（如果不存在）
+    add_badges_if_needed "${target_file}"
 
     # 生成 GitHub 代码链接
     local github_url="https://github.com/dong4j/zeka.stack/tree/main/${relative_path}"
@@ -175,16 +234,18 @@ sync_docs_files() {
         local target_file="${target_dir}/${rel_doc_path}"
         local target_subdir
         target_subdir=$(dirname "${target_file}")
-        
+
         # 创建目标子目录
         mkdir -p "${target_subdir}"
-        
+
         # 复制文件
         cp "${doc_file}" "${target_file}"
-        
+
         # 检查并添加 frontmatter（如果不存在）
         add_frontmatter_if_needed "${target_file}"
-        
+        # 检查并添加徽标（如果不存在）
+        add_badges_if_needed "${target_file}"
+
         echo -e "  ${BLUE}→${NC} 已同步 docs/${rel_doc_path} -> docs/${relative_path}/${rel_doc_path}"
     done < <(find "${source_docs_dir}" -type f -name "*.md" -print0 2>/dev/null)
 }
@@ -258,7 +319,7 @@ process_pom_dir() {
 
     # 检查是否有 docs 目录且包含 md 文件，或者有有 pom.xml 的子目录
     local need_directory_structure=0
-    
+
     if has_docs_with_md "${current_dir}"; then
         need_directory_structure=1
     elif has_pom_subdirs "${current_dir}"; then
@@ -283,10 +344,10 @@ process_pom_dir() {
 
         # 同步 imgs 目录
         sync_imgs_dir "${current_dir}" "${target_dir}"
-        
+
         # 继续处理有 pom.xml 的子目录
         process_pom_subdirs "${current_dir}" "${target_dir}"
-        
+
         return 0
     else
         # 无 docs 目录且无有 pom.xml 的子目录：生成 flat 文件（目录名.md）在父目录
@@ -297,7 +358,7 @@ process_pom_dir() {
         sync_readme "${readme_file}" "${target_file}" "${relative_path}"
         echo -e "${GREEN}✓${NC} ${relative_path}/README.md -> docs/${parent_target_dir#${DOCS_DIR}/}/${dir_name}.md"
         ((SYNCED_COUNT++))
-        
+
         return 1
     fi
 }
@@ -306,17 +367,17 @@ process_pom_dir() {
 process_pom_subdirs() {
     local current_dir="$1"
     local current_target_dir="$2"
-    
+
     for subdir in "${current_dir}"/*; do
         [[ ! -d "${subdir}" ]] && continue
         local subdir_name
         subdir_name=$(basename "${subdir}")
-        
+
         # 跳过特殊目录
         case "${subdir_name}" in
             docs|imgs|src|target|node_modules|.git|templates|.mvn|.idea|.vscode|assembly|bin|db|.*) continue ;;
         esac
-        
+
         if has_pom_xml "${subdir}"; then
             process_pom_dir "${subdir}" "${current_target_dir}"
         fi
@@ -365,11 +426,11 @@ find_pom_dirs() {
 is_from_source_docs() {
     local relative_path="$1"
     local check_type="${2:-dir}"
-    
+
     # 查找此路径对应的源模块路径
     # 例如：cubo-starter-examples/cubo-logsystem-spring-boot-sample/1.8.0
     # 需要检查源目录 cubo-starter-examples/cubo-logsystem-spring-boot-sample/docs/1.8.0 是否存在
-    
+
     # 逐级向上查找，直到找到有 pom.xml 的目录
     local check_path="${relative_path}"
     while [[ -n "${check_path}" ]] && [[ "${check_path}" != "." ]]; do
@@ -393,7 +454,7 @@ is_from_source_docs() {
         [[ "${new_check_path}" == "${check_path}" ]] && break
         check_path="${new_check_path}"
     done
-    
+
     return 1
 }
 
@@ -446,7 +507,7 @@ cleanup_submodules() {
         elif [[ -f "${item}" ]] && [[ "${item}" == *.md ]]; then
             local file_name
             file_name=$(basename "${item}")
-            
+
             # 跳过 index.md（它对应目录，由目录清理逻辑处理）
             if [[ "${file_name}" == "index.md" ]]; then
                 continue
@@ -457,7 +518,7 @@ cleanup_submodules() {
             # 检查是否是 flat 文件（目录名.md）
             local possible_dir_name="${file_name%.md}"
             local possible_source_dir="${ROOT_DIR}/${relative_path}/${possible_dir_name}"
-            
+
             # 检查源目录是否存在且有 pom.xml 和 README.md，且不需要目录结构
             if [[ -d "${possible_source_dir}" ]] && \
                has_pom_xml "${possible_source_dir}" && \
@@ -534,7 +595,7 @@ for target_dir in "${TARGET_DIRS[@]}"; do
     fi
 
     echo -e "${BLUE}处理目录: ${target_dir}${NC}"
-    
+
     # 检查顶级目录是否有 README.md，如果有则同步为 index.md
     if [[ -f "${source_dir}/README.md" ]]; then
         target_file="${DOCS_DIR}/${target_dir}/index.md"
@@ -543,7 +604,7 @@ for target_dir in "${TARGET_DIRS[@]}"; do
         echo -e "${GREEN}✓${NC} ${target_dir}/README.md -> docs/${target_dir}/index.md"
         ((SYNCED_COUNT++))
     fi
-    
+
     # 递归查找并处理所有有 pom.xml 的目录
     find_pom_dirs "${source_dir}" "${DOCS_DIR}/${target_dir}"
     echo ""
