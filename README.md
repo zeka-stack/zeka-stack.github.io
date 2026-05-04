@@ -173,6 +173,15 @@ docs/guide/
 - `.vitepress/config.js` - VitePress 配置文件
 - `sync-docs.sh` - 文档同步脚本
 
+## 文档开发规范
+
+如果你需要为本仓库新增或维护文档，请优先阅读以下两份开发者文档：
+
+- [docs-sync-guide.md](docs-sync-guide.md)：说明文档应该如何组织、同步、放目录，以及双向链接为什么容易报错
+- [docs-authoring-best-practices.md](docs-authoring-best-practices.md)：说明文档应该怎么写，包括标题、结构、示例、表格、链接写法和 AI 友好文档建议
+
+这两份文档主要面向**参与文档维护的开发者**，而不是部署后访问站点的普通用户。
+
 ## 代码图标
 
 ### 使用方式
