@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 
 # 服务器配置
 SERVER_ALIAS="aliyun"
-REMOTE_DIR="/var/www/zeka-stack/dist"
+REMOTE_DIR="/var/www/zeka-stack-docs/dist"
 
 # 获取脚本所在目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -136,7 +136,7 @@ echo ""
 echo -e "${YELLOW}部署信息:${NC}"
 echo -e "  - 服务器: ${BLUE}${SERVER_ALIAS}${NC}"
 echo -e "  - 目录: ${BLUE}${REMOTE_DIR}${NC}"
-echo -e "  - 站点: ${BLUE}https://zeka-stack.dong4j.site${NC}"
+echo -e "  - 站点: ${BLUE}https://zekastack.dong4j.site/docs/${NC}"
 echo ""
 echo -e "${YELLOW}本地命令:${NC}"
 echo -e "  - 运行 ${BLUE}pnpm run dev${NC} 启动开发服务器"

@@ -202,8 +202,8 @@ a.VPButton[href*="guide"]:hover,
 
 /* 导航菜单滚动条 */
 .VPNav {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
+    overflow: visible !important;
+    z-index: 60;
 }
 
 .VPNav::-webkit-scrollbar {

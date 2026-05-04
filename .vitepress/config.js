@@ -461,12 +461,11 @@ export default defineConfig(
 
         title: 'Zeka Stack',
         description: 'Zeka Stack - 一个现代化的 Java 微服务工程体系',
-        base: '/',
+        base: '/docs/',
         lang: 'zh-CN',
 
         // 域名配置
-        // 如果部署到子路径，修改 base 为 '/zeka-stack/'
-        // 当前配置为根域名 zeka-stack.dong4j.site
+        // 当前配置部署在 /docs/ 子路径
 
         // 忽略死链接检查（用于开发环境的 localhost 链接等）
         ignoreDeadLinks: [
