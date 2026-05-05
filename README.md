@@ -182,6 +182,38 @@ docs/guide/
 
 这两份文档主要面向**参与文档维护的开发者**，而不是部署后访问站点的普通用户。
 
+### 更新时间显示说明
+
+站点页面里的“更新于”来自 VitePress 的 `lastUpdated`，其时间源是 Git 提交历史。
+
+如果某个 `.md` 文件没有被 Git 跟踪（例如被 `.gitignore` 忽略，或新增后未 `git add`），页面可能出现异常更新时间（例如 `1970.01.01`）。
+
+建议在排查时先执行：
+
+```bash [bash]
+# 检查文件是否被忽略
+git check-ignore -v "path/to/file.md"
+
+# 检查文件是否已纳入版本管理
+git status -- "path/to/file.md"
+```
+
+### 更新时间显示说明
+
+站点页面里的“更新于”来自 VitePress 的 `lastUpdated`，其时间源是 Git 提交历史。
+
+如果某个 `.md` 文件没有被 Git 跟踪（例如被 `.gitignore` 忽略，或新增后未 `git add`），页面可能出现异常更新时间（例如 `1970.01.01`）。
+
+建议在排查时先执行：
+
+```bash [bash]
+# 检查文件是否被忽略
+git check-ignore -v "path/to/file.md"
+
+# 检查文件是否已纳入版本管理
+git status -- "path/to/file.md"
+```
+
 ## 代码图标
 
 ### 使用方式

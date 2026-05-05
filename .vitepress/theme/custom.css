@@ -249,3 +249,63 @@ a:hover {
         font-size: 2.5rem;
     }
 }
+
+/* Home page card dark mode alignment */
+html.dark .vp-doc .home-content {
+    --zeka-ink: var(--vp-c-text-1);
+    --zeka-mist: var(--vp-c-bg);
+    --zeka-sand: var(--vp-c-bg-soft);
+    --zeka-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: var(--zeka-ink);
+}
+
+html.dark .vp-doc .signal-bar {
+    background: var(--vp-c-bg-soft);
+    border-color: var(--vp-c-border);
+    box-shadow: var(--zeka-shadow);
+    color: var(--vp-c-text-2);
+}
+
+html.dark .vp-doc .signal-bar span {
+    background: var(--vp-c-bg-elv);
+    border-color: var(--vp-c-border);
+    color: var(--vp-c-text-2);
+}
+
+html.dark .vp-doc .overview-section {
+    background: linear-gradient(135deg, var(--vp-c-bg-elv), var(--vp-c-bg-soft));
+    border-color: var(--vp-c-border);
+    box-shadow: var(--zeka-shadow);
+}
+
+html.dark .vp-doc .overview-header h2,
+html.dark .vp-doc .module-card h3,
+html.dark .vp-doc .tech-item strong,
+html.dark .vp-doc .resource-title,
+html.dark .vp-doc .author-section h3,
+html.dark .vp-doc .workflow-strip strong {
+    color: var(--vp-c-text-1);
+}
+
+html.dark .vp-doc .overview-header p,
+html.dark .vp-doc .module-card p,
+html.dark .vp-doc .resource-desc,
+html.dark .vp-doc .workflow-strip span,
+html.dark .vp-doc .author-section a {
+    color: var(--vp-c-text-2);
+}
+
+html.dark .vp-doc .stat-card,
+html.dark .vp-doc .module-card,
+html.dark .vp-doc .tech-item,
+html.dark .vp-doc .resource-card,
+html.dark .vp-doc .author-section {
+    background: var(--vp-c-bg-soft);
+    border-color: var(--vp-c-border);
+    box-shadow: var(--zeka-shadow);
+}
+
+html.dark .vp-doc .workflow-strip {
+    background: color-mix(in srgb, var(--vp-c-bg-soft) 88%, var(--vp-c-brand) 12%);
+    border-color: var(--vp-c-border);
+}

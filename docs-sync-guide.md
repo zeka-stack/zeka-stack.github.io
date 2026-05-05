@@ -209,6 +209,18 @@ zeka-stack.github.io/arco-meta/arco-builder/index.md
 ### 11.4 只在 GitHub 上验证
 双向链接是否正常，不能只看 GitHub 仓库，还要以 `pnpm run dev` 实际结果为准。
 
+### 11.5 页面“更新于”显示为 1970 或异常
+`ArticleMetadata` 里的“更新于”依赖 VitePress 注入的 `lastUpdated`，而 `lastUpdated` 来源于 Git 提交时间。
+
+如果文档文件未纳入 Git 管理（例如被 `.gitignore` 忽略，或改动后未提交），该字段可能为空或异常，从而显示 `1970.01.01`。
+
+排查顺序建议：
+
+1. 检查 `.gitignore` 是否误忽略了 `.md` 文件；
+2. 用 `git check-ignore -v <file>` 验证忽略来源；
+3. 确认文件已被 Git 跟踪并提交（`git status` / `git log -- <file>`）；
+4. 重新构建或部署文档站点。
+
 ## 12. 最终建议
 
 - 模块文档从源码仓维护
