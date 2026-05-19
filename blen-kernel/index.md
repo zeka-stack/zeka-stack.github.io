@@ -12,7 +12,6 @@ published: 2022.05.01
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
-
 # 核心框架
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -97,7 +96,7 @@ Blen Kernel 是 Zeka.Stack 框架的核心包，提供了企业级 Java 应用�
 <dependency>
     <groupId>dev.dong4j</groupId>
     <artifactId>blen-kernel</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
     <type>pom</type>
 </dependency>
 ```
@@ -108,13 +107,13 @@ Blen Kernel 是 Zeka.Stack 框架的核心包，提供了企业级 Java 应用�
 <dependency>
     <groupId>dev.dong4j</groupId>
     <artifactId>blen-kernel-common</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </dependency>
 
 <dependency>
     <groupId>dev.dong4j</groupId>
     <artifactId>blen-kernel-auth</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </dependency>
 ```
 

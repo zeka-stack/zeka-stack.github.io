@@ -12,7 +12,6 @@ published: 2022.04.26
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
-
 # 自解压部署
 
 ## 简介
@@ -255,7 +254,7 @@ Maven 会根据插件在 POM 中的定义顺序执行，因此框架将 `arco-ma
 <plugin>
     <groupId>dev.dong4j</groupId>
     <artifactId>arco-makeself-maven-plugin</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
     <configuration>
         <archiveDir>my-spring-boot-app-1.0.0</archiveDir>
         <fileName>my-spring-boot-app-1.0.0.run</fileName>
@@ -688,7 +687,6 @@ mvn package -X
 - [Makeself 官方网站](https://makeself.io/)
 - [Makeself GitHub 仓库](https://github.com/megastep/makeself)
 - [Maven Plugin 开发指南](https://maven.apache.org/guides/plugin/guide-java-plugin-development.html)
-
 
 ---
 

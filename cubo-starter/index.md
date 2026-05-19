@@ -12,7 +12,6 @@ published: 2022.03.07
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
-
 # Starter 组件
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -213,7 +212,7 @@ REST API 模块，提供完整的 RESTful API 开发支持。
 <dependency>
     <groupId>dev.dong4j</groupId>
     <artifactId>cubo-ssm-spring-boot-starter</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -223,7 +222,7 @@ REST API 模块，提供完整的 RESTful API 开发支持。
 <dependency>
     <groupId>dev.dong4j</groupId>
     <artifactId>cubo-framework-spring-boot-starter</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -233,7 +232,7 @@ REST API 模块，提供完整的 RESTful API 开发支持。
 <dependency>
     <groupId>dev.dong4j</groupId>
     <artifactId>cubo-mybatis-spring-boot-starter</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </dependency>
 ```
 

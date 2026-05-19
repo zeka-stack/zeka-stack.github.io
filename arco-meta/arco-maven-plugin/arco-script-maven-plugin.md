@@ -12,7 +12,6 @@ published: 2022.04.12
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
-
 # 启动脚本生成
 
 ## 概述
@@ -135,7 +134,7 @@ zeka.stack 框架已经内置了完整的插件配置，无需手动添加。框
 │   └── pom.properties
 ├── cubo-rest-spring-boot-sample-servlet.jar
 └── lib
-    ├── blen-kernel-auth-2.0.0-SNAPSHOT.jar
+    ├── blen-kernel-auth-3.0.0-SNAPSHOT.jar
     ...
 ```
 

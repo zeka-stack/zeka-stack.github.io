@@ -12,7 +12,6 @@ published: 2022.01.01
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
-
 # 全局基础父项目
 
 ## 📖 作用
@@ -62,7 +61,7 @@ arco-supreme (全局基础) ← 当前模块
 <parent>
     <groupId>dev.dong4j</groupId>
     <artifactId>arco-supreme</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
     <relativePath/>
 </parent>
 ```
@@ -83,7 +82,7 @@ arco-supreme (全局基础) ← 当前模块
 
 ```xml
 <properties>
-    <revision>2.0.0-SNAPSHOT</revision>
+    <revision>3.0.0-SNAPSHOT</revision>
 </properties>
 ```
 
@@ -166,11 +165,12 @@ arco-supreme (全局基础) ← 当前模块
 ```xml
 <properties>
     <!-- 全局版本号 -->
-    <global.version>2.0.0-SNAPSHOT</global.version>
+    <global.version>3.0.0-SNAPSHOT</global.version>
 
     <!-- 可重现构建时间戳 -->
     <outputTimestamp.1.0.0>2025-05-12T00:00:00Z</outputTimestamp.1.0.0>
     <outputTimestamp.2.0.0-SNAPSHOT>2025-08-30T00:00:00Z</outputTimestamp.2.0.0-SNAPSHOT>
+    <outputTimestamp.3.0.0-SNAPSHOT>2026-05-19T00:00:00Z</outputTimestamp.3.0.0-SNAPSHOT>
 </properties>
 ```
 
@@ -234,7 +234,6 @@ mvn clean deploy -P private
 - [[arco-meta/arco-builder/index|构建框架总览]]
 - [[arco-meta/arco-maven-plugin/index|Maven 插件总览]]
 - [[arco-meta/arco-processor/index|注解处理器总览]]
-
 
 ---
 

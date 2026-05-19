@@ -12,7 +12,6 @@ published: 2022.01.10
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
-
 # 业务型父项目
 
 ## 📖 作用
@@ -62,7 +61,7 @@ published: 2022.01.10
 <parent>
     <groupId>dev.dong4j</groupId>
     <artifactId>arco-business-parent</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
     <relativePath/>
 </parent>
 
@@ -156,7 +155,7 @@ mkdir -p bin
 <parent>
     <groupId>dev.dong4j</groupId>
     <artifactId>arco-business-parent</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </parent>
 
 <artifactId>user-service</artifactId>

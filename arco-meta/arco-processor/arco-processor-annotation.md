@@ -12,7 +12,6 @@ published: 2022.02.07
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
-
 # 注解定义模块
 
 ## 📖 作用
@@ -66,7 +65,7 @@ published: 2022.02.07
 <dependency>
     <groupId>dev.dong4j</groupId>
     <artifactId>arco-processor-annotation</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -102,7 +101,7 @@ public class AlipayService implements PaymentService {
             <path>
                 <groupId>dev.dong4j</groupId>
                 <artifactId>arco-processor-core</artifactId>
-                <version>2.0.0-SNAPSHOT</version>
+                <version>3.0.0-SNAPSHOT</version>
             </path>
         </annotationProcessorPaths>
     </configuration>
