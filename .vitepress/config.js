@@ -331,6 +331,7 @@ function generateSidebar() {
 
     // 单独处理 "简介" 分类
     addDirectoryMenu(sidebar, '简介', 'guide')
+    addDirectoryMenu(sidebar, 'AI', 'ai')
 
     // 处理目标目录，按配置的顺序生成菜单
     const categoryOrder = getCategoryOrder()
@@ -409,6 +410,9 @@ export default defineConfig(
                 // 生成 LLM 友好的文档
                 llmstxt({
                     title: 'Zeka Stack',
+                    domain: 'https://zekastack.dong4j.site',
+                    description: '面向 AI Agent 的 Java 业务工程规范与组件知识。',
+                    details: '先读 [For Agents](https://zekastack.dong4j.site/docs/ai/index.md)、[arch.md](https://zekastack.dong4j.site/docs/arch.md)、[业务 Skill](https://zekastack.dong4j.site/docs/SKILL.md) 和 [组件 Skills](https://zekastack.dong4j.site/docs/skills/llms.txt)。当前为 3.0.0-SNAPSHOT 源码快照；配置与 API 以该版本源码为准。',
                     ignoreFiles: [
                         'node_modules/**',
                         '.vitepress/**',
@@ -529,6 +533,7 @@ export default defineConfig(
             nav: [
                 { text: '🏠 首页', link: '/' },
                 { text: '🚀 开始', link: '/guide/' },
+                { text: 'AI', link: '/ai/' },
                 { text: '📝 更新日志', link: '/changelog' },
                 { text: '📊 统计', link: 'https://umami.dong4j.site/share/o0wIhLdP1EwFcdCt/zeka-stack.dong4j.site', target: '_blank' }
             ],
