@@ -264,10 +264,10 @@ public class User {
 }
 
 @Service
+@lombok.RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
 
     public void createUser(User user) {
         // createTime 和 updateTime 会自动填充
@@ -303,10 +303,10 @@ public class Order {
 }
 
 @Service
+@lombok.RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    private OrderMapper orderMapper;
+    private final OrderMapper orderMapper;
 
     public void createOrder(Order order) {
         // tenantId 和 createTime 会自动填充
@@ -333,10 +333,10 @@ public class Product {
 }
 
 @Service
+@lombok.RequiredArgsConstructor
 public class ProductService {
 
-    @Autowired
-    private ProductMapper productMapper;
+    private final ProductMapper productMapper;
 
     public void createProduct(Product product) {
         // clientId 会自动填充

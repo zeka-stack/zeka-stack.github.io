@@ -1,0 +1,19 @@
+# Zeka Stack Starter Skills
+
+> Current 3.0.0-SNAPSHOT source snapshot. Select actual dependencies.
+
+- [cubo-dict-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-dict-spring-boot-starter/SKILL.md)
+- [cubo-endpoint-reactive-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-endpoint-reactive-spring-boot-starter/SKILL.md)
+- [cubo-endpoint-servlet-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-endpoint-servlet-spring-boot-starter/SKILL.md)
+- [cubo-framework-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-framework-spring-boot-starter/SKILL.md)
+- [cubo-launcher-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-launcher-spring-boot-starter/SKILL.md)
+- [cubo-logsystem-log4j2-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-logsystem-log4j2-spring-boot-starter/SKILL.md)
+- [cubo-logsystem-record-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-logsystem-record-spring-boot-starter/SKILL.md)
+- [cubo-messaging-kafka-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-messaging-kafka-spring-boot-starter/SKILL.md)
+- [cubo-messaging-rocketmq-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-messaging-rocketmq-spring-boot-starter/SKILL.md)
+- [cubo-mybatis-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-mybatis-spring-boot-starter/SKILL.md)
+- [cubo-openapi-dubbo-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-openapi-dubbo-spring-boot-starter/SKILL.md)
+- [cubo-openapi-knife4j-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-openapi-knife4j-spring-boot-starter/SKILL.md)
+- [cubo-rest-reactive-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-rest-reactive-spring-boot-starter/SKILL.md)
+- [cubo-rest-servlet-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-rest-servlet-spring-boot-starter/SKILL.md)
+- [cubo-ssm-spring-boot-starter](https://zekastack.dong4j.site/docs/skills/cubo-ssm-spring-boot-starter/SKILL.md)

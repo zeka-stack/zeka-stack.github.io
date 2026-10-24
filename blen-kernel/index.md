@@ -12,6 +12,7 @@ published: 2022.05.01
   <img src="https://img.shields.io/badge/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84-ready-1B9AAA?style=flat-square" alt="微服务架构" style="display:inline-block; vertical-align:middle;" />
 </p>
 
+
 # 核心框架
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -151,10 +152,10 @@ public class Application {
 ```java
 @RestController
 @RequestMapping("/api/users")
+@lombok.RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @GetMapping("/{id}")
     public Result<User> getUser(@PathVariable Long id) {
