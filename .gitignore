@@ -79,3 +79,4 @@ rebel.xml
 .vitepress/cache
 
 markdown-map.json
+node_modules
