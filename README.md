@@ -160,13 +160,24 @@ docs/guide/
 
 ## 部署
 
-文档部署到 `zeka-stack.dong4j.site` 域名。
+文档部署到 `https://zekastack.dong4j.site/docs/`。VitePress 的 `base` 为 `/docs/`，
+线上 Nginx 将该路径映射到 `/var/www/zeka-stack-docs/dist/`，与 `deploy.sh` 的目标目录保持一致。
 
 ### 部署步骤
 
-1. 构建文档：`npm run build`
-2. 将 `.vitepress/dist` 目录内容部署到服务器
-3. 配置 Nginx 或其他 Web 服务器指向该目录
+在本仓库目录执行以下命令，仅构建并发布当前文档，不执行图片转换或全量源码文档同步：
+
+```bash
+pnpm run build
+rsync -avz --delete --progress .vitepress/dist/ aliyun:/var/www/zeka-stack-docs/dist/
+```
+
+`--delete` 会删除目标目录中不在本次构建产物内的旧文件，因此发布前应备份该目录。
+已有线上 Nginx 配置无需修改或重载；仓库中的 `zekastack.dong4j.site.conf` 仅作为配置参考。
+
+发布后应检查 `/docs/ai/` 页面，以及 `/docs/arch.md`、`/docs/SKILL.md`、
+`/docs/llms.txt` 的实际内容。缺失文件可能被 Nginx 回退到 HTML 首页，
+因此不能只凭 HTTP 200 判断部署成功，应同时核对响应内容与本地构建产物。
 
 ## 配置说明
 
